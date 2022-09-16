@@ -1,1 +1,2 @@
 # PP0002_Heart-Diesease-Project
+This project is a binary classification project which predicts if a person has a heart disease based on health data provided. The first version of the notebook is the work along file from the ZTM ML Data Science bootcamp. Subsequent versions of the project will have the objectives of improving the evaluation metrics of the model by either tuning the hyperparameters and/or trying other models as well.
