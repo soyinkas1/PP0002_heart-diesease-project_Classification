@@ -14,5 +14,5 @@ ensure
 python-box
 pyYAML
 python-dotenv
-conda 
+
 

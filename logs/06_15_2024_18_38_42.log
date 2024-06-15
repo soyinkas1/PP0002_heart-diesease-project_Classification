@@ -1,0 +1,3 @@
+[2024-06-15 18:38:43,051] 23 root - INFO - yaml file: app\main\config\config.yaml loaded successfully
+[2024-06-15 18:38:43,059] 45 root - INFO - created directory at: artifacts
+[2024-06-15 18:38:43,059] 22 root - INFO - Entered data ingestion method or component

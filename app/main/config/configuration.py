@@ -7,8 +7,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class ConfigurationManager:
 
-    def __init__(self,
-                 config_filepath=CONFIG_FILE_PATH, params_filepath=PARAMS_FILE_PATH):
+    def __init__(self,config_filepath=CONFIG_FILE_PATH, params_filepath=PARAMS_FILE_PATH):
         self.config = read_yaml(config_filepath) 
         # self.params = read_yaml(params_filepath)
         
@@ -18,10 +17,10 @@ class ConfigurationManager:
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         config = self.config.data_ingestion
 
-        create_directories([self.config.root_dir])
+        create_directories([config.root_dir])
 
         data_ingestion_config = DataIngestionConfig(   
-        root_dir=config.root_dir ,
+        root_dir=config.root_dir,
         n_rows=config.n_rows,
         raw_data_path=config.raw_data_path,
         loaded_data_path=config.loaded_data_path,

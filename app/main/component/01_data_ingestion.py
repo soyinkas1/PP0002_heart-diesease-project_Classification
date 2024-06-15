@@ -37,9 +37,9 @@ class DataIngestion:
         except Exception as e:
             raise CustomException(e, sys)
 
-if __name__ == '__main__':
-    config = ConfigurationManager()
-    data_ingestion_config = config.get_data_ingestion_config()
-    obj= DataIngestion(config=data_ingestion_config)
-    obj.initiate_data_ingestion()
+# if __name__ == '__main__':
+#     config = ConfigurationManager()
+#     data_ingestion_config = config.get_data_ingestion_config()
+#     obj= DataIngestion(config=data_ingestion_config)
+#     obj.initiate_data_ingestion()
 
