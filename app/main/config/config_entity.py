@@ -5,8 +5,9 @@ from pathlib import Path
 
 @dataclass(frozen=True)
 class DataIngestionConfig:
-    roor_dir:Path
+    root_dir:Path
+    n_rows: int
     raw_data_path: Path
-    ingested_data_path: Path
+    loaded_data_path: Path
+    chunk_size: int
 
-    
