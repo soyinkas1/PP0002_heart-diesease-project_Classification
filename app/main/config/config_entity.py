@@ -20,3 +20,10 @@ class DataCleaningConfig:
     clean_data_path: Path
     chunk_size: int
 
+@dataclass(frozen=True)
+class DataTransformationConfig:
+    root_dir: Path
+    loaded_data_path: Path
+    clean_data_path: Path
+    chunk_size: int
+
