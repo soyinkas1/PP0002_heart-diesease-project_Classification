@@ -19,7 +19,7 @@ class DataIngestion:
 
     def initiate_data_ingestion(self):
         """ The method to ingest data from data sources"""
-        logging.info('Entered data ingestion method or component')
+        logging.info('Started the data ingestion process...')
         
         try:
             

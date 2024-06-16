@@ -6,3 +6,9 @@ data_ingestion:
     raw_data_path: app/data/heart-disease.csv
     loaded_data_path: artifacts/data_ingestion/loaded_heart-disease.csv
     chunk_size: 100000
+
+data_cleaning:
+    root_dir: artifacts/data_cleaning
+    loaded_data_path: artifacts/data_ingestion/loaded_heart-disease.csv
+    clean_data_path: artifacts/data_cleaning/clean_heart-disease.csv
+    chunk_size: 100000

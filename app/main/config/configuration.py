@@ -1,5 +1,5 @@
 from app.utils.common import read_yaml, create_directories
-from app.main.config.config_entity import DataIngestionConfig
+from app.main.config.config_entity import DataIngestionConfig, DataCleaningConfig
 import os
 from app.main.constants import *
 
@@ -29,3 +29,21 @@ class ConfigurationManager:
         )
 
         return data_ingestion_config
+    
+    def get_data_cleaning_config(self) -> DataCleaningConfig:
+        config = self.config.data_cleaning
+
+        create_directories([config.root_dir])
+
+        data_cleaning_config = DataCleaningConfig(   
+        root_dir=config.root_dir,
+        loaded_data_path=config.loaded_data_path,
+        clean_data_path=config.clean_data_path,
+        chunk_size=config.chunk_size
+
+        )
+
+        return data_cleaning_config
+    
+
+    

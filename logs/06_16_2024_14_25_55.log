@@ -1,0 +1,4 @@
+[2024-06-16 14:25:57,279] 23 root - INFO - yaml file: app\main\config\config.yaml loaded successfully
+[2024-06-16 14:25:57,281] 45 root - INFO - created directory at: artifacts
+[2024-06-16 14:25:57,282] 45 root - INFO - created directory at: artifacts/data_cleaning
+[2024-06-16 14:25:57,298] 23 root - INFO - Entered data cleaning method or component

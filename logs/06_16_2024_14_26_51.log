@@ -1,0 +1,6 @@
+[2024-06-16 14:26:52,396] 23 root - INFO - yaml file: app\main\config\config.yaml loaded successfully
+[2024-06-16 14:26:52,398] 45 root - INFO - created directory at: artifacts
+[2024-06-16 14:26:52,399] 45 root - INFO - created directory at: artifacts/data_cleaning
+[2024-06-16 14:26:52,399] 23 root - INFO - Entered data cleaning method or component
+[2024-06-16 14:26:52,448] 33 root - INFO - Read the loaded heart disease dataset as dataframe
+[2024-06-16 14:26:52,463] 42 root - INFO - Saved the cleaned heart disease dataset in csv format
