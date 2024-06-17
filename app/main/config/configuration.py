@@ -55,8 +55,10 @@ class ConfigurationManager:
         clean_data_path=config.clean_data_path,
         transformed_data_path=config.transformed_data_path,
         chunk_size=config.chunk_size, 
-        train_data_path=config.train_data_path,
-        test_data_path=config.test_data_path 
+        X_train_data_path=config.X_train_data_path,
+        X_test_data_path=config.X_test_data_path,
+        y_train_data_path=config.y_train_data_path,
+        y_test_data_path=config.y_test_data_path  
         )
 
         

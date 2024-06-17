@@ -26,6 +26,8 @@ class DataTransformationConfig:
     clean_data_path: Path
     transformed_data_path: Path
     chunk_size: int
-    train_data_path: Path
-    test_data_path: Path
+    X_train_data_path: Path
+    X_test_data_path: Path
+    y_train_data_path: Path
+    y_test_data_path: Path
 
