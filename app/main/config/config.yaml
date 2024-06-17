@@ -12,3 +12,11 @@ data_cleaning:
     loaded_data_path: artifacts/data_ingestion/loaded_heart-disease.csv
     clean_data_path: artifacts/data_cleaning/clean_heart-disease.csv
     chunk_size: 100000
+
+data_transformation:
+    root_dir: artifacts/data_transformation
+    clean_data_path: artifacts/data_cleaning/clean_heart-disease.csv
+    transformed_data_path: artifacts/data_transformation/transformed_heart-disease.csv
+    chunk_size: 100000
+    train_data_path: artifacts/data_transformation/train.csv
+    test_data_path: artifacts/data_transformation/test.csv

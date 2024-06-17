@@ -23,7 +23,9 @@ class DataCleaningConfig:
 @dataclass(frozen=True)
 class DataTransformationConfig:
     root_dir: Path
-    loaded_data_path: Path
     clean_data_path: Path
+    transformed_data_path: Path
     chunk_size: int
+    train_data_path: Path
+    test_data_path: Path
 

@@ -1,5 +1,5 @@
 from app.utils.common import read_yaml, create_directories
-from app.main.config.config_entity import DataIngestionConfig, DataCleaningConfig
+from app.main.config.config_entity import DataIngestionConfig, DataCleaningConfig, DataTransformationConfig
 import os
 from app.main.constants import *
 
@@ -44,6 +44,22 @@ class ConfigurationManager:
         )
 
         return data_cleaning_config
+    
+    def get_data_transformation_config(self) -> DataTransformationConfig:
+        config = self.config.data_transformation
+
+        create_directories([config.root_dir])
+
+        data_transformation_config = DataTransformationConfig(
+        root_dir=config.root_dir, 
+        clean_data_path=config.clean_data_path,
+        transformed_data_path=config.transformed_data_path,
+        chunk_size=config.chunk_size, 
+        train_data_path=config.train_data_path,
+        test_data_path=config.test_data_path 
+        )
+
+        
     
 
     
