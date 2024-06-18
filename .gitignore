@@ -1,5 +1,7 @@
 # Virtual env
 env/
 venv/
+data/
+__pych*
 
 .ipynb_checkpoints
