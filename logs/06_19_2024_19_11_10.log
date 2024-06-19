@@ -1,0 +1,8 @@
+[2024-06-19 19:11:20,220] 23 root - INFO - yaml file: app\main\config\config.yaml loaded successfully
+[2024-06-19 19:11:20,220] 45 root - INFO - created directory at: artifacts
+[2024-06-19 19:11:20,220] 45 root - INFO - created directory at: artifacts/data_transformation
+[2024-06-19 19:11:20,220] 25 root - INFO - Started the data transformation process...
+[2024-06-19 19:11:20,263] 35 root - INFO - Read the cleaned heart disease dataset as dataframe
+[2024-06-19 19:11:20,278] 46 root - INFO - Dataset split into features matrix and target vector
+[2024-06-19 19:11:20,291] 52 root - INFO - Datasets split into training and test datasets
+[2024-06-19 19:11:20,319] 61 root - INFO - Training and test datasets saved for next stage- modelling

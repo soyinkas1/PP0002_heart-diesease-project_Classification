@@ -1,3 +1,4 @@
+
 from app.utils.common import read_yaml, create_directories
 from app.main.config.config_entity import DataIngestionConfig, DataCleaningConfig, DataTransformationConfig
 import os
@@ -60,6 +61,8 @@ class ConfigurationManager:
         y_train_data_path=config.y_train_data_path,
         y_test_data_path=config.y_test_data_path  
         )
+
+        return data_transformation_config
 
         
     
