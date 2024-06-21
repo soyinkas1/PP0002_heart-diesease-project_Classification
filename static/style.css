@@ -1,0 +1,30 @@
+
+
+.container {
+    padding: 80px
+}
+
+  
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+.footer a {
+    color: white;
+    margin: 0 10px;
+}
+.footer a:hover {
+    color: #ddd;
+}
+.fab.fa-linkedin {
+    color: #0077B5;
+}
+.fab.fa-twitter {
+    color: #1DA1F2;
+}
+.fab.fa-github {
+    color: #333333;
+}
+
