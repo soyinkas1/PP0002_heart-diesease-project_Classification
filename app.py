@@ -28,8 +28,8 @@ class WebForm(FlaskForm):
     
     email = StringField("Email Address (text)", validators=[DataRequired()], 
                                           render_kw={"placeholder": "Provide the email address that the prediction will be sent to"})
-    age = IntegerField('Years of Operation',default=0 ,validators=[InputRequired()])
-    sex = SelectField('Category', choices=list(zip(webform_config.category_list, 
+    age = IntegerField('Age',default=0 ,validators=[InputRequired()])
+    sex = SelectField('Sex', choices=list(zip(webform_config.category_list, 
                                                                   webform_config.category_list)), validate_choice=True)
     cp = IntegerField('Number of Years Since Last Funding', default=0 ,validators=[InputRequired()])
     trestbps = IntegerField("Promoter's Degree Length (Years)", default=0 ,validators=[InputRequired()])
