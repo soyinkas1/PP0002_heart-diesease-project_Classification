@@ -48,8 +48,7 @@ class WebForm(FlaskForm):
     status = SelectField('status', choices=[('acquired', 'acquired'), ('operating', 'operating'), ('ipo', 'ipo'), ('closed','closed')], 
                          validate_choice=True)
    
-    category_groups_list = SelectField('Category Group', choices=list(zip(webform_config.category_groups_list, 
-                                                                                webform_config.category_groups_list)), validate_choice=True)
+
     primary_role = SelectField('Company Primary Role', choices=[('company', 'company'), ('investor', 'investor'), ('school', 'school')], 
                                validate_choice=True)
     gender = SelectField('Promoter Gender', choices=[('Male', 'Male'), ('Female', 'Female')], validate_choice=True)
