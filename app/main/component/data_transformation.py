@@ -39,24 +39,24 @@ class DataTransformation:
             
             ''' 
 
-            # Split the data into X and y
-            X= df.drop('target',axis=1)
-            y = df.target
+            # # Split the data into X and y
+            # X= df.drop('target',axis=1)
+            # y = df.target
             
             logging.info('Dataset split into features matrix and target vector')
             
             # Split the data into train and test sets
-            X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2)
-            print('Shape of X_train:', X_train.shape,'Shape of y_train:',y_train.shape,'Shape of X_test:',X_test.shape,'Shape of y_test:',y_test.shape)
+            train,val,test = train_test_split(df,train_size=0.6, test_size=0.2)
+            print('Shape of train:', train.shape,'Shape of val:',val.shape,'Shape of test:',test.shape)
             
             logging.info('Datasets split into training and test datasets')
 
             # Save the train and test datasets
             
-            X_train.to_csv(self.transformation_config.X_train_data_path, index=False)
-            X_test.to_csv(self.transformation_config.X_test_data_path, index=False)
-            y_train.to_csv(self.transformation_config.y_train_data_path, index=False)
-            y_test.to_csv(self.transformation_config.y_test_data_path, index=False)
+            train.to_csv(self.transformation_config.train_data_path, index=False)
+            test.to_csv(self.transformation_config.test_data_path, index=False)
+            val.to_csv(self.transformation_config.val_data_path, index=False)
+            # y_test.to_csv(self.transformation_config.y_test_data_path, index=False)
 
             logging.info('Training and test datasets saved for next stage- modelling')
             

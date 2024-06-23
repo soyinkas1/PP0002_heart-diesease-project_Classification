@@ -18,7 +18,14 @@ data_transformation:
     clean_data_path: artifacts/data_cleaning/clean_heart-disease.csv
     transformed_data_path: artifacts/data_transformation/transformed_heart-disease.csv
     chunk_size: 100000
-    X_train_data_path: artifacts/data_transformation/X_train.csv
-    X_test_data_path: artifacts/data_transformation/X_test.csv
-    y_train_data_path: artifacts/data_transformation/y_train.csv
-    y_test_data_path: artifacts/data_transformation/y_test.csv
+    train_data_path: artifacts/data_transformation/train.csv
+    test_data_path: artifacts/data_transformation/test.csv
+    val_data_path: artifacts/data_transformation/val.csv
+    # y_test_data_path: artifacts/data_transformation/y_test.csv
+
+model_trainer:
+    root_dir: artifacts/model
+    best_model_path: artifacts/model/best_model.pkl
+    train_data_path: artifacts/data_transformation/train.csv
+    test_data_path: artifacts/data_transformation/test.csv
+    val_data_path: artifacts/data_transformation/val.csv

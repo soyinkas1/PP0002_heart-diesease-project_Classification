@@ -28,40 +28,20 @@ class WebForm(FlaskForm):
     
     email = StringField("Email Address (text)", validators=[DataRequired()], 
                                           render_kw={"placeholder": "Provide the email address that the prediction will be sent to"})
-    age = IntegerField('Age',default=0 ,validators=[InputRequired()])
-    sex = SelectField('Sex', choices=list(zip(webform_config.category_list, 
-                                                                  webform_config.category_list)), validate_choice=True)
-    cp = IntegerField('Number of Years Since Last Funding', default=0 ,validators=[InputRequired()])
-    trestbps = IntegerField("Promoter's Degree Length (Years)", default=0 ,validators=[InputRequired()])
-    chol = IntegerField("Promoter's Years of Experience at Start of Company", default=0 ,validators=[InputRequired()])
-    fbs = IntegerField('Number of Events as a sponsor', default=0 ,validators=[InputRequired()])
-    restecg = IntegerField('Number of Events as a speaker', default=0 ,validators=[InputRequired()])
-    thalach = IntegerField('Number of Events as an organizer', default=0 ,validators=[InputRequired()])
-    exang = IntegerField('Number of Events as an exhibitor', default=0 ,validators=[InputRequired()])
-    oldpeak = FloatField('Total Funding in USD', default=0.00 ,validators=[InputRequired()])
-    slope = IntegerField('Company Employee Count', default=1 ,validators=[InputRequired()])
-    ca = IntegerField('Company Employee Count', default=1 ,validators=[InputRequired()])
-    thal = IntegerField('Company Employee Count', default=1 ,validators=[InputRequired()])
+    age = IntegerField('Age in years',default=0 ,validators=[InputRequired()])
+    sex = SelectField('Sex (1 = male; 0 = female)', choices=[('1', 'male'), ('0', 'female')], validate_choice=True)
+    cp = IntegerField('Chest pain type', default=0 ,validators=[InputRequired()])
+    trestbps = IntegerField("Resting blood pressure (in mm Hg on admission to the hospital)", default=0 ,validators=[InputRequired()])
+    chol = IntegerField("Serum cholestoral in mg/dl", default=0 ,validators=[InputRequired()])
+    fbs = SelectField('(Fasting blood sugar &gt; 120 mg/dl) (1 = true; 0 = false)', choices=[('1', 'male'), ('0', 'female')], validate_choice=True)
+    restecg = SelectField('Resting electrocardiographic results', choices=[('1', 'male'), ('0', 'female')], validate_choice=True)
+    thalach = IntegerField('Maximum heart rate achieved', default=0 ,validators=[InputRequired()])
+    exang = IntegerField('Exercise induced angina (1 = yes; 0 = no)', default=0 ,validators=[InputRequired()])
+    oldpeak = FloatField('ST depression induced by exercise relative to rest', default=0.00 ,validators=[InputRequired()])
+    slope = IntegerField('The slope of the peak exercise ST segment', default=1 ,validators=[InputRequired()])
+    ca = IntegerField('Number of major vessels (0-3) colored by flourosopy', default=1 ,validators=[InputRequired()])
+    thal = IntegerField('1 = normal; 2 = fixed defect; 3 = reversable defect', default=1 ,validators=[InputRequired()])
 
-
-    
-    status = SelectField('status', choices=[('acquired', 'acquired'), ('operating', 'operating'), ('ipo', 'ipo'), ('closed','closed')], 
-                         validate_choice=True)
-   
-
-    primary_role = SelectField('Company Primary Role', choices=[('company', 'company'), ('investor', 'investor'), ('school', 'school')], 
-                               validate_choice=True)
-    gender = SelectField('Promoter Gender', choices=[('Male', 'Male'), ('Female', 'Female')], validate_choice=True)
-    featured_job_title = SelectField('Job Title', choices=list(zip(webform_config.featured_job_title_list, 
-                                                                            webform_config.featured_job_title_list)), validate_choice=True)
-    institution_name = SelectField("Promoter's Institution Name", choices=list(zip(webform_config.institution_name_list, 
-                                                                        webform_config.institution_name_list)), validate_choice=True)
-    degree_type = SelectField("Promoter's Degree Type", choices=list(zip(webform_config.degree_type_list, 
-                                                              webform_config.degree_type_list)), validate_choice=True)
-    subject = SelectField("Promoter's Degree subject", choices=list(zip(webform_config.subject_list, 
-                                                      webform_config.subject_list)), validate_choice=True)
-    degree_is_completed = SelectField('Degree is completed?', choices=[('Yes'), ('No')], validate_choice=True)
-    submit = SubmitField('Submit', validators=[DataRequired()])
 
 
 @app.route('/')

@@ -26,8 +26,40 @@ class DataTransformationConfig:
     clean_data_path: Path
     transformed_data_path: Path
     chunk_size: int
-    X_train_data_path: Path
-    X_test_data_path: Path
-    y_train_data_path: Path
-    y_test_data_path: Path
+    train_data_path: Path
+    test_data_path: Path
+    val_data_path: Path
+    # y_test_data_path: Path
+
+
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    root_dir: Path
+    best_model_path: Path
+    train_data_path: Path
+    test_data_path: Path
+    val_data_path: Path
+
+
+
+
+
+
+@dataclass(frozen=True)
+class WebFormConfig:
+    email: str
+    age: int
+    sex: int
+    cp: int | float
+    trestbps: int | float
+    chol: int | float
+    fbs: int | float
+    restecg: int | float
+    thalach: int | float
+    exang : int | float
+    oldpeak: int | float
+    ca: int | float
+    thal: int | float 
+
+
 

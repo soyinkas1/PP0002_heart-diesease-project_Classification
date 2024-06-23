@@ -32,9 +32,9 @@ from sklearn.pipeline import Pipeline
 
 # import the internal classes and methods required
 from app.main.config.config_entity import DataTransformationConfig, ModelTrainerConfig
-from src.exception import CustomException
-from src.logger import logging
-from src.utils.common import save_object, evaluate_models
+from app.main.exception import CustomException
+from app.main.logging import logging
+from app.utils.common import save_object, evaluate_models
 
 
 
@@ -50,7 +50,7 @@ class ModelTrainer:
         # We will load the training, validation and test dataset as chunks
 
         train_reader = pd.read_csv(self.model_trainer_config.train_data_path, chunksize=1000, low_memory=False)
-        val_reader = pd.read_csv(self.model_trainer_config.validation_data_path, chunksize=1000, low_memory=False)
+        val_reader = pd.read_csv(self.model_trainer_config.val_data_path, chunksize=1000, low_memory=False)
         test_reader = pd.read_csv(self.model_trainer_config.test_data_path, chunksize=1000, low_memory=False)
 
         # Concatenate all chunks into a single DataFrame

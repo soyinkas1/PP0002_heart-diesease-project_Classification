@@ -1,6 +1,6 @@
 
 from app.utils.common import read_yaml, create_directories
-from app.main.config.config_entity import DataIngestionConfig, DataCleaningConfig, DataTransformationConfig
+from app.main.config.config_entity import DataIngestionConfig, DataCleaningConfig, DataTransformationConfig,ModelTrainerConfig
 import os
 from app.main.constants import *
 
@@ -56,14 +56,29 @@ class ConfigurationManager:
         clean_data_path=config.clean_data_path,
         transformed_data_path=config.transformed_data_path,
         chunk_size=config.chunk_size, 
-        X_train_data_path=config.X_train_data_path,
-        X_test_data_path=config.X_test_data_path,
-        y_train_data_path=config.y_train_data_path,
-        y_test_data_path=config.y_test_data_path  
+        train_data_path=config.train_data_path,
+        test_data_path=config.test_data_path,
+        val_data_path=config.val_data_path,
+        # y_test_data_path=config.y_test_data_path  
         )
 
         return data_transformation_config
 
+def get_data_model_trainer_config(self) -> ModelTrainerConfig:
+    config = self.config.model_trainer
+
+    create_directories([config.root_dir])
+
+    model_trainer_config = ModelTrainerConfig(
+            root_dir=config.root_dir, 
+            best_model_path=config.best_model_path,
+    train_data_path
+    test_data_path
+    val_data_path
+        # y_test_data_path=config.y_test_data_path  
+        )
+
+        return data_transformation_config
         
     
 
