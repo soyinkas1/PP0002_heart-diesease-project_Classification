@@ -72,13 +72,13 @@ def get_data_model_trainer_config(self) -> ModelTrainerConfig:
     model_trainer_config = ModelTrainerConfig(
             root_dir=config.root_dir, 
             best_model_path=config.best_model_path,
-    train_data_path
-    test_data_path
-    val_data_path
+            train_data_path=config.train_data_path
+            test_data_path=config.test_data_path
+            val_data_path=config.val_data_path
         # y_test_data_path=config.y_test_data_path  
         )
 
-        return data_transformation_config
+        return model_trainer_config
         
     
 
