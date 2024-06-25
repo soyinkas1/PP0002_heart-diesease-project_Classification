@@ -1,6 +1,8 @@
 
+from app.main.pipeline import prediction_pipeline
 from app.utils.common import read_yaml, create_directories
-from app.main.config.config_entity import DataIngestionConfig, DataCleaningConfig, DataTransformationConfig,ModelTrainerConfig
+from app.main.config.config_entity import DataIngestionConfig, DataCleaningConfig, \
+    DataTransformationConfig,ModelTrainerConfig, PredictionPipelineConfig, WebFormConfig
 import os
 from app.main.constants import *
 
@@ -78,8 +80,40 @@ def get_data_model_trainer_config(self) -> ModelTrainerConfig:
         # y_test_data_path=config.y_test_data_path  
         )
 
-        return model_trainer_config
+    return model_trainer_config
         
-    
 
+def get_prediction_pipeline_config(self) -> PredictionPipelineConfig:
+    config = self.config.prediction_pipeline
+
+    prediction_pipeline_config = PredictionPipelineConfig(
+            age=config.age,
+            sex=config.sex,
+            cp=config.cp,
+            trestbpscp=config.trestbpscp,
+            chol=config.chol,
+            fbs=config.fbs,
+            restecg=config.restecg,
+            thalach=config.thalach,
+            exang=config.exang,
+            oldpeak=config.oldpeak,
+            slope=config.slope,
+            ca=config.ca,
+            thal=config.thal,
+            model_path=config.model_path 
+        )
+
+    return prediction_pipeline_config
+    
+def get_webform_config(self, ) -> WebFormConfig:
+        config = self.config.WebForm
+
+        webform_config = WebFormConfig(
+                sex=config.sex,
+                fbs=config.fbs,
+                restecg=config.restecg  
+                
+        )
+
+        return webform_config
     

@@ -40,6 +40,29 @@ class ModelTrainerConfig:
     test_data_path: Path
     val_data_path: Path
 
+@dataclass(frozen=True)
+class PredictionPipelineConfig:
+    age: int
+    sex:  int
+    cp: int
+    trestbpscp: int
+    chol: int
+    fbs: int
+    restecg: int
+    thalach: int
+    exang: int
+    oldpeak: float
+    slope: int
+    ca: int
+    thal: int
+    model_path: Path
+
+@dataclass(frozen=True)
+class WebFormConfig:
+    sex: int
+    fbs: int
+    restecg: int
+
 
 
 
