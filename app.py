@@ -30,17 +30,17 @@ class WebForm(FlaskForm):
                                           render_kw={"placeholder": "Provide the email address that the prediction will be sent to"})
     age = IntegerField('Age in years',default=0 ,validators=[InputRequired()])
     sex = SelectField('Sex (1 = male; 0 = female)', choices=[('1', 'male'), ('0', 'female')], validate_choice=True)
-    cp = IntegerField('Chest pain type', default=0 ,validators=[InputRequired()])
+    cp = SelectField('Sex (1 = male; 0 = female)', choices=[('1', 'male'), ('0', 'female')], validate_choice=True)
     trestbps = IntegerField("Resting blood pressure (in mm Hg on admission to the hospital)", default=0 ,validators=[InputRequired()])
     chol = IntegerField("Serum cholestoral in mg/dl", default=0 ,validators=[InputRequired()])
     fbs = SelectField('(Fasting blood sugar &gt; 120 mg/dl) (1 = true; 0 = false)', choices=[('1', 'male'), ('0', 'female')], validate_choice=True)
     restecg = SelectField('Resting electrocardiographic results', choices=[('1', 'male'), ('0', 'female')], validate_choice=True)
     thalach = IntegerField('Maximum heart rate achieved', default=0 ,validators=[InputRequired()])
-    exang = IntegerField('Exercise induced angina (1 = yes; 0 = no)', default=0 ,validators=[InputRequired()])
+    exang = SelectField('Sex (1 = male; 0 = female)', choices=[('1', 'male'), ('0', 'female')], validate_choice=True)
     oldpeak = FloatField('ST depression induced by exercise relative to rest', default=0.00 ,validators=[InputRequired()])
-    slope = IntegerField('The slope of the peak exercise ST segment', default=1 ,validators=[InputRequired()])
-    ca = IntegerField('Number of major vessels (0-3) colored by flourosopy', default=1 ,validators=[InputRequired()])
-    thal = IntegerField('1 = normal; 2 = fixed defect; 3 = reversable defect', default=1 ,validators=[InputRequired()])
+    slope = SelectField('Sex (1 = male; 0 = female)', choices=[('1', 'male'), ('0', 'female')], validate_choice=True)
+    ca = SelectField('Sex (1 = male; 0 = female)', choices=[('1', 'male'), ('0', 'female')], validate_choice=True)
+    thal = SelectField('Sex (1 = male; 0 = female)', choices=[('1', 'male'), ('0', 'female')], validate_choice=True)
 
 
 
