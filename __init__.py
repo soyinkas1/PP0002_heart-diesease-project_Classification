@@ -22,6 +22,9 @@ def create_app(config_name):
     db.init_app(app)
 
     # attach routes and custom error pages here
-
+    with app.app_context():
+        from . import models, views
+        db.create_all()
+        
     return app
 
