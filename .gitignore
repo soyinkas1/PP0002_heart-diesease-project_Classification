@@ -2,7 +2,7 @@
 env/
 venv/
 data/
-__pych*
+__pyc*
 
 .ipynb_checkpoints/
 .env
