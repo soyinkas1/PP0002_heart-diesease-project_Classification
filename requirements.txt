@@ -13,7 +13,9 @@ flask-bootstrap
 flask-mail
 flask-moment
 flask_sqlalchemy
+psycopg2
 flask_fontawesome
+Flask-Migrate
 ensure
 python-box
 pyYAML
