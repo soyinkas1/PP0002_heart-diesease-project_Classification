@@ -3,7 +3,6 @@ import pandas as pd
 from pyparsing import cached_property
 from app.main.exception import CustomException
 from app.utils.common import load_object
-from app.main.config.configuration import ConfigurationManager
 from app.main.config.config_entity import PredictionPipelineConfig
 from app.main.logging import logging
 

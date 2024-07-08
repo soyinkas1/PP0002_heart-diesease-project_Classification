@@ -106,15 +106,15 @@ def get_prediction_pipeline_config(self) -> PredictionPipelineConfig:
 
     return prediction_pipeline_config
     
-def get_webform_config(self, ) -> WebFormConfig:
-        config = self.config.WebForm
+def get_webform_config(self) -> WebFormConfig:
+    config = self.config.webform
 
-        webform_config = WebFormConfig(
+    webform_config = WebFormConfig(
                 sex=config.sex,
                 fbs=config.fbs,
                 restecg=config.restecg  
                 
         )
 
-        return webform_config
+    return webform_config
     

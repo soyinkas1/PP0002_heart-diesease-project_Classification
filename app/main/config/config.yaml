@@ -47,7 +47,6 @@ prediction_pipeline:
     model_path: artifacts/best_model.pkl
     preprocessor_path: artifact/preprocessor.pkl
 
-
 webform:
     sex: [1, 0]
     fbs: [1, 0]
