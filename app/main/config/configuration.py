@@ -100,7 +100,8 @@ def get_prediction_pipeline_config(self) -> PredictionPipelineConfig:
             slope=config.slope,
             ca=config.ca,
             thal=config.thal,
-            model_path=config.model_path 
+            model_path=config.model_path,
+            preprocessor_path=config.preprocessor_path
         )
 
     return prediction_pipeline_config

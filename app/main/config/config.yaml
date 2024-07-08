@@ -44,7 +44,9 @@ prediction_pipeline:
     slope: slope
     ca: ca
     thal: thal
-    model_path: model_path
+    model_path: artifacts/best_model.pkl
+    preprocessor_path: artifact/preprocessor.pkl
+
 
 webform:
     sex: [1, 0]

@@ -56,6 +56,8 @@ class PredictionPipelineConfig:
     ca: int
     thal: int
     model_path: Path
+    preprocessor_path: Path
+
 
 @dataclass(frozen=True)
 class WebFormConfig:

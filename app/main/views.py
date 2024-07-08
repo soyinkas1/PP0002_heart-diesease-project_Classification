@@ -6,9 +6,17 @@ from ..db_models import HeartPredictions
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
-    form =WebForm()
-    if form.validate_on_submit():
 
+    return render_template('index.html')
+
+      
+
+@main.route('/predictdata', methods=['GET', 'POST'])
+def predict_datapoint():
+    form = WebForm()
+    if form.validate_on_submit():
+         
+        data = CustomData(
         return redirect(url_for('.index'))
     
     

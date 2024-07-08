@@ -11,12 +11,12 @@ from app.main.config.configuration import ConfigurationManager
 
 
 
-config = ConfigurationManager()
-webform_config = config.get_webform_config()
+
 
 
 class WebForm(FlaskForm):
-    
+    config = ConfigurationManager()
+    webform_config = config.get_webform_config() 
     
     email = StringField("Email Address (text)", validators=[DataRequired()], 
                                           render_kw={"placeholder": "Provide the email address that the prediction will be sent to"})
