@@ -33,6 +33,7 @@ class WebForm(FlaskForm):
     slope = SelectField('Sex (1 = male; 0 = female)', choices=[('1', 'male'), ('0', 'female')], validate_choice=True)
     ca = SelectField('Sex (1 = male; 0 = female)', choices=[('1', 'male'), ('0', 'female')], validate_choice=True)
     thal = SelectField('Sex (1 = male; 0 = female)', choices=[('1', 'male'), ('0', 'female')], validate_choice=True)
+    submit = SubmitField('Submit', validators=[DataRequired()])
 
 
     

@@ -1,7 +1,8 @@
 
 
 .container {
-    padding: 80px
+    padding: 100px;
+    
 }
 
   
@@ -26,5 +27,27 @@
 }
 .fab.fa-github {
     color: #333333;
+}
+
+.form-control {
+    width: 70%;
+    max-width: 500px; /* Optionally, you can set a maximum width */
+    border-radius: 10px; /* Adjust the value as needed for rounded corners */
+    
+}
+
+.form-control::placeholder {
+    color: #999; /* Adjust the color of the placeholder text */
+}
+
+.container {
+    padding: 100px;
+}
+
+#submit {
+    background-color: black;
+    color: white;
+    border: none; /* Optionally, to remove default button border */
+    border-radius: 5px; /* Optionally, add border radius for rounded corners */
 }
 
