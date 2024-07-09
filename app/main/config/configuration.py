@@ -1,8 +1,6 @@
 
-from app.main.pipeline import prediction_pipeline
 from app.utils.common import read_yaml, create_directories
-from app.main.config.config_entity import DataIngestionConfig, DataCleaningConfig, \
-    DataTransformationConfig,ModelTrainerConfig, PredictionPipelineConfig, WebFormConfig
+from app.main.config.config_entity import DataIngestionConfig, DataCleaningConfig, DataTransformationConfig,ModelTrainerConfig, PredictionPipelineConfig, WebFormConfig
 import os
 from app.main.constants import *
 
