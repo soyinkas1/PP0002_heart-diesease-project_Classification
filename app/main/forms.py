@@ -10,12 +10,11 @@ from app.main.config.configuration import ConfigurationManager
 
 
 
-config = ConfigurationManager()
-webform_config = config.get_webform_config()
-
-
 
 class WebForm(FlaskForm):
+
+    config = ConfigurationManager()
+    webform_config = config.get_webform_config
      
     
     

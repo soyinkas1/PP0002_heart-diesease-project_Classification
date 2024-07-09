@@ -21,7 +21,7 @@
 # config = ConfigurationManager()
 # predict_config = config.get_prediction_pipeline_config()
 # webform_config = config.get_webform_config()
-
+# print(webform_config)
 
 # class WebForm(FlaskForm):
     

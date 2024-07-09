@@ -59,60 +59,60 @@ class ConfigurationManager:
         train_data_path=config.train_data_path,
         test_data_path=config.test_data_path,
         val_data_path=config.val_data_path,
-        # y_test_data_path=config.y_test_data_path  
+        
         )
 
         return data_transformation_config
 
-def get_data_model_trainer_config(self) -> ModelTrainerConfig:
-    config = self.config.model_trainer
+    def get_data_model_trainer_config(self) -> ModelTrainerConfig:
+        config = self.config.model_trainer
 
-    create_directories([config.root_dir])
+        create_directories([config.root_dir])
 
-    model_trainer_config = ModelTrainerConfig(
-            root_dir=config.root_dir, 
-            best_model_path=config.best_model_path,
-            train_data_path=config.train_data_path,
-            test_data_path=config.test_data_path,
-            val_data_path=config.val_data_path
-        # y_test_data_path=config.y_test_data_path  
-        )
+        model_trainer_config = ModelTrainerConfig(
+                root_dir=config.root_dir, 
+                best_model_path=config.best_model_path,
+                train_data_path=config.train_data_path,
+                test_data_path=config.test_data_path,
+                val_data_path=config.val_data_path
+            
+            )
 
-    return model_trainer_config
-        
+        return model_trainer_config
+            
 
-def get_prediction_pipeline_config(self) -> PredictionPipelineConfig:
-    config = self.config.prediction_pipeline
+    def get_prediction_pipeline_config(self) -> PredictionPipelineConfig:
+        config = self.config.prediction_pipeline
 
-    prediction_pipeline_config = PredictionPipelineConfig(
-            age=config.age,
-            sex=config.sex,
-            cp=config.cp,
-            trestbpscp=config.trestbpscp,
-            chol=config.chol,
-            fbs=config.fbs,
-            restecg=config.restecg,
-            thalach=config.thalach,
-            exang=config.exang,
-            oldpeak=config.oldpeak,
-            slope=config.slope,
-            ca=config.ca,
-            thal=config.thal,
-            model_path=config.model_path,
-            preprocessor_path=config.preprocessor_path
-        )
-
-    return prediction_pipeline_config
-    
-def get_webform_config(self) -> WebFormConfig:
-    config = self.config.webform
-
-    webform_config = WebFormConfig(
+        prediction_pipeline_config = PredictionPipelineConfig(
+                age=config.age,
                 sex=config.sex,
+                cp=config.cp,
+                trestbpscp=config.trestbpscp,
+                chol=config.chol,
                 fbs=config.fbs,
-                restecg=config.restecg  
-                
-        )
+                restecg=config.restecg,
+                thalach=config.thalach,
+                exang=config.exang,
+                oldpeak=config.oldpeak,
+                slope=config.slope,
+                ca=config.ca,
+                thal=config.thal,
+                model_path=config.model_path,
+                preprocessor_path=config.preprocessor_path
+            )
 
-    return webform_config
-    
+        return prediction_pipeline_config
+        
+    def get_webform_config(self) -> WebFormConfig:
+        config = self.config.webform
+
+        webform_config = WebFormConfig(
+                    sex=config.sex,
+                    fbs=config.fbs,
+                    restecg=config.restecg  
+                    
+            )
+
+        return webform_config
+        
