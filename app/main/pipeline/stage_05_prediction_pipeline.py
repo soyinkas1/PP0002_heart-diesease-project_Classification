@@ -53,7 +53,7 @@ class CustomData:
         age: int,
         sex:  int,
         cp: int,
-        trestbpscp: int,
+        trestbps: int,
         chol: int,
         fbs: int,
         restecg: int,
@@ -68,7 +68,7 @@ class CustomData:
         self.age=age
         self.sex=sex
         self.cp=cp
-        self.trestbpscp=trestbpscp
+        self.trestbps=trestbps
         self.chol=chol
         self.fbs=fbs
         self.restecg=restecg

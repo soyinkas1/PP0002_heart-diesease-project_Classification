@@ -26,7 +26,7 @@ def predict_datapoint():
             age=form.age.data,
             sex=form.sex.data,
             cp=form.cp.data,
-            trestbpscp=form.tresbpscp.data,
+            trestbps=form.trestbps.data,
             chol=form.chol.data,
             fbs=form.fbs.data,
             restecg=form.restecg.data,
