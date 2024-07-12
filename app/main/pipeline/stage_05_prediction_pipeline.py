@@ -86,7 +86,7 @@ class CustomData:
                 "age": [self.age],
                 "sex": [self.sex],
                 "cp": [self.cp],
-                "trestbpscp": [self.trestbpscp],
+                "trestbps": [self.trestbps],
                 "chol": [self.chol],
                 "fbs": [self.fbs],
                 "restecg": [self.restecg],

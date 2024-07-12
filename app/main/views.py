@@ -3,7 +3,7 @@ from . import main
 from .forms import WebForm
 from .. import db
 from ..db_models import HeartPredictions
-from app.main.pipeline.prediction_pipeline import CustomData, PredictPipeline
+from app.main.pipeline.stage_05_prediction_pipeline import CustomData, PredictPipeline
 from app.main.config.configuration import ConfigurationManager
 
 
@@ -35,7 +35,7 @@ def predict_datapoint():
             oldpeak=form.oldpeak.data,
             slope=form.slope.data,
             ca=form.ca.data,
-            thal=form.thal.age
+            thal=form.thal.data
         )
         pred_df=data.get_data_as_data_frame()
         print(pred_df)
