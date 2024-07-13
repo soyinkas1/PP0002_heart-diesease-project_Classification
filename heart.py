@@ -1,5 +1,5 @@
 import os
-from app import create_app, db
+from app import create_app, db, mail
 from app.db_models import HeartPredictions
 from flask_migrate import Migrate
 from dotenv import load_dotenv

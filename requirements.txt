@@ -21,5 +21,6 @@ python-box
 pyYAML
 python-dotenv
 jupyter
+email_validator
 
 

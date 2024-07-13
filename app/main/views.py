@@ -5,6 +5,7 @@ from .. import db
 from ..db_models import HeartPredictions
 from app.main.pipeline.stage_05_prediction_pipeline import CustomData, PredictPipeline
 from app.main.config.configuration import ConfigurationManager
+from .. import email
 
 
 config = ConfigurationManager()
@@ -21,8 +22,9 @@ def index():
 def predict_datapoint():
     form = WebForm()
     if form.validate_on_submit():
-         
+        # Collect data imput from webform      
         data = CustomData(
+            email=form.email.data,
             age=form.age.data,
             sex=form.sex.data,
             cp=form.cp.data,
@@ -35,15 +37,26 @@ def predict_datapoint():
             oldpeak=form.oldpeak.data,
             slope=form.slope.data,
             ca=form.ca.data,
-            thal=form.thal.data
+            thal=form.thal.data,
+            target=1
         )
+
+        # Create DataFrame for prediction 
         pred_df=data.get_data_as_data_frame()
         print(pred_df)
-
-                
-            
+   
+        # Make prediction using data supplied 
         obj = PredictPipeline(config=predict_config)
         predict = obj.predict(pred_df)
+
+        # Update the results to database
+        database_df = data.get_data_for_database()
+        database_df['target'] = predict
+        data.add_to_database(database_df)
+
+        # Email results 
+        email.send_email(database_df['email'], 'Results',
+'mail/results', predict=predict)
 
         return render_template('results.html', predict=predict)
 

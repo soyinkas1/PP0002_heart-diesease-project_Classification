@@ -5,6 +5,8 @@ from app.utils.common import load_object
 from app.main.config.configuration import ConfigurationManager
 from app.main.config.config_entity import PredictionPipelineConfig
 from app.main.logging import logging
+from app.db_models import HeartPredictions
+from app import db
 
 
 
@@ -50,6 +52,7 @@ class PredictPipeline:
 
 class CustomData:
     def __init__(  self, 
+        email:int,
         age: int,
         sex:  int,
         cp: int,
@@ -62,9 +65,11 @@ class CustomData:
         oldpeak: float,
         slope: int,
         ca: int,
-        thal: int
+        thal: int,
+        target:int
         ):
 
+        self.email=email
         self.age=age
         self.sex=sex
         self.cp=cp
@@ -78,6 +83,7 @@ class CustomData:
         self.slope=slope
         self.ca=ca
         self.thal=thal
+        self.target=target
                
 
     def get_data_as_data_frame(self):
@@ -97,11 +103,47 @@ class CustomData:
                 "ca": [self.ca],
                 "thal": [self.thal],
                 
-                
-
             }
 
             return pd.DataFrame(custom_data_input_dict)
 
         except Exception as e:
             raise CustomException(e, sys)
+        
+    def get_data_for_database(self):
+        try:
+            custom_database_input_dict = {
+                "email":[self.email],
+                "age": [self.age],
+                "sex": [self.sex],
+                "cp": [self.cp],
+                "trestbps": [self.trestbps],
+                "chol": [self.chol],
+                "fbs": [self.fbs],
+                "restecg": [self.restecg],
+                "thalach": [self.thalach],
+                "exang": [self.exang],
+                "oldpeak": [self.oldpeak],
+                "slope": [self.slope],
+                "ca": [self.ca],
+                "thal": [self.thal],
+                "target": [self.target],
+                
+            }
+
+            return pd.DataFrame(custom_database_input_dict)
+
+        except Exception as e:
+            raise CustomException(e, sys)
+    
+    def add_to_database(self, df):
+        try:
+            # Convert DataFrame to list of dictionaries
+            data_dicts = df.to_dict(orient='records')
+
+            # Bulk insert using SQLAlchemy
+            db.session.bulk_insert_mappings(HeartPredictions, data_dicts)
+            db.session.commit()
+        except Exception as e:
+            print(f"Error: {e}")
+            db.session.rollback()

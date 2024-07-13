@@ -3,7 +3,7 @@ from . import db
 class HeartPredictions(db.Model):
     __tablename__='heart_predictions'
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=False, nullable=False)
     age = db.Column(db.Integer, unique=False, nullable=False)
     sex = db.Column(db.Integer, unique=False, nullable=False)
     cp = db.Column(db.Integer, unique=False, nullable=False)
