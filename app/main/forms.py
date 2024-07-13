@@ -1,8 +1,8 @@
-from flask import Flask, redirect, render_template, url_for
+from flask import Flask, redirect, render_template, url_for, session
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, BooleanField, FloatField, IntegerField, SelectField
-from wtforms.validators import DataRequired, InputRequired
+from wtforms.validators import DataRequired, InputRequired, Email
 
 
 # from src.pipeline.stage_07_prediction_pipeline import CustomData, PredictPipeline
@@ -17,7 +17,7 @@ class WebForm(FlaskForm):
     webform_config = config.get_webform_config
      
         
-    email = StringField("Email address", validators=[DataRequired()], 
+    email = StringField("Email address", validators=[DataRequired(), Email()], 
                                           render_kw={"placeholder": "Provide the email address that the prediction will be sent to"})
     age = IntegerField('Age in years', default=0 , validators=[InputRequired()])
     sex = SelectField('Sex', choices=[(1, 'male'), (0, 'female')], coerce=int, validate_choice=True)
