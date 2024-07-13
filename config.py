@@ -13,6 +13,7 @@ class Config:
         MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
         DEV_DATABASE_URL = os.getenv('DEV_DATABASE_URL')
         DATABASE_URL = os.getenv('DATABASE_URL')
+        
 
 
         @staticmethod
@@ -24,14 +25,17 @@ class DevelopmentConfig(Config):
         SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') 
         # or \
         # 'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
+        SQLALCHEMY_TRACK_MODIFICATIONS = os.getenv('SQLALCHEMY_TRACK_MODIFICATIONS')
 class TestingConfig(Config):
         TESTING = True
         SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
-        'sqlite://'
+        'sqlite:///' + os.path.join(basedir, 'data-test.sqlite')
+        SQLALCHEMY_TRACK_MODIFICATIONS = os.getenv('SQLALCHEMY_TRACK_MODIFICATIONS')
 class ProductionConfig(Config):
         SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') 
         # or \
         # 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+        SQLALCHEMY_TRACK_MODIFICATIONS = os.getenv('SQLALCHEMY_TRACK_MODIFICATIONS')
         
 
 config = {

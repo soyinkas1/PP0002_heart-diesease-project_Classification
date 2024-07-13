@@ -20,4 +20,4 @@ class HeartPredictions(db.Model):
     target = db.Column(db.Integer, unique=False, nullable=False)
 
     def __repr__(self):
-        return f'<User {self.email}>'
+        return f"<Heart Diesease Prediction(id={self.id}, name='{self.email}', age='{self.age}')>"
