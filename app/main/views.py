@@ -55,7 +55,7 @@ def predict_datapoint():
         data.add_to_database(database_df)
 
         # Email results 
-        email.send_email(database_df['email'], 'Results',
+        email.send_email(database_df['email'].iloc[0], 'results',
 'mail/results', predict=predict)
 
         return render_template('results.html', predict=predict)
