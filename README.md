@@ -198,158 +198,80 @@ The following steps were carried out of this dataset to clean and transform it f
                 <td>numeric</td>
                 <td>int</td>
             </tr>
-            <tr>
-            
+            <tr>a          
                 <td>2</td>
-                <td>yrs_since_last_funding</td>
-                <td>The number of years since the company received any external funding.</td>
-                <td>numeric</td>
+                <td>Sex</td>
+                <td>1-Male or 2-Female.</td>
+                <td>categorical</td>
                 <td>int</td>
             </tr>
             <tr>
                 <td>3</td>
-                <td>degree_length</td>
-                <td>Number of years between the start and completion date of a degree programme by the promoter</td>
-                <td>interval</td>
+                <td>cp</td>
+                <td>Chest Pain Type</td>
+                <td>categorical</td>
                 <td>int</td>
             </tr>
             <tr>
                 <td>4</td>
-                <td>per_exp_at_coy_start</td>
-                <td>The number of years between the year the promoter graduated and when the organisation was founded.</td>
-                <td>interval</td>
+                <td>tresbps</td>
+                <td>Resting Blood Pressure (in mm Hg on admissions to the hospital).</td>
+                <td>numeric</td>
                 <td>int</td>
             </tr>
             <tr>
                 <td>5</td>
-                <td>sponsor</td>
-                <td>The number of events the organization or promoter participated in as a sponsor.</td>
+                <td>chol</td>
+                <td>Serum Cholestoral in mg/dl.</td>
                 <td>numeric</td>
                 <td>int</td>
             </tr>
             <tr>
                 <td>6</td>
-                <td>speaker</td>
-                <td>The number of events the organization or promoter participated in as a speaker.</td>
-                <td>numeric</td>
+                <td>fbs</td>
+                <td>Fasting Blood Sugar > 120mg (1-True, 0-False).</td>
+                <td>categorical</td>
                 <td>int</td>
             </tr>
             <tr>
                 <td>7</td>
-                <td>organizer</td>
-                <td>The number of events the organization or promoter participated in as an organizer</td>
+                <td>restecg</td>
+                <td>Resting electocadiographic (ECG)  results</td>
                 <td>numeric</td>
                 <td>int</td>
             </tr>
             <tr>
                 <td>8</td>
-                <td>oexhibitor</td>
-                <td>The number of events the organization or promoter participated in as an exhibitor</td>
+                <td>oldpeak</td>
+                <td>ST depression induced by exercise relative to rest</td>
                 <td>numeric</td>
-                <td>int</td>
+                <td>float</td>
             </tr>
             <tr>
                 <td>9</td>
-                <td>employee_count</td>
-                <td>count of employees of the organization.</td>
+                <td>slope</td>
+                <td>The slope of the peak exercise ST segment.</td>
                 <td>numeric</td>
                 <td>int</td>
             </tr>
             <tr>
                 <td>10</td>
-                <td>total_funding_usd</td>
-                <td>The total amount of external funding received by the company</td>
+                <td>ca</td>
+                <td>Number of major vessels (0-3) coloured by flourosopy</td>
                 <td>numeric</td>
-                <td>float</td>
+                <td>int</td>
             </tr>
             <tr>
                 <td>11</td>
-                <td>organization_description</td>
-                <td>full description about the company</td>
-                <td>text</td>
-                <td>string</td>
+                <td>thal</td>
+                <td>1-Normal, 2-Fixed defect, 3-Reversible defect</td>
+                <td>numeric</td>
+                <td>int</td>
             </tr>
-            <tr>
+             <tr>
                 <td>12</td>
-                <td>people_description</td>
-                <td>full description about the promoter</td>
-                <td>text</td>
-                <td>string</td>
-            </tr>
-            <tr>
-                <td>13</td>
-                <td>status</td>
-                <td>status or state of the organization</td>
-                <td>categorical</td>
-                <td>string</td>
-            </tr>
-            <tr>
-                <td>14</td>
-                <td>category_list</td>
-                <td>main category type of the organisationr</td>
-                <td>categorical</td>
-                <td>string</td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td>category_groups_list</td>
-                <td>grouped category type of the organization</td>
-                <<td>categorical</td>
-                <td>string</td>
-            </tr>
-            <tr>
-                <td>16</td>
-                <td>primary_role</td>
-                <td>Roles as either company, investor or school </td>
-                <<td>categorical</td>
-                <td>string</td>
-            </tr>
-            <tr>
-                <td>17</td>
-                <td>gender</td>
-                <td>gender identifier for the promoter</td>
-                <<td>categorical</td>
-                <td>string</td>
-            </tr>
-            <tr>
-                <td>18</td>
-                <td>featured_job_title</td>
-                <td>job title for the promoter</td>
-                <<td>categorical</td>
-                <td>string</td>
-            </tr>
-            <tr>
-                <td>19</td>
-                <td>institution_name</td>
-                <td>educational institute attended by the promoter</td>
-                <<td>categorical</td>
-                <td>string</td>
-            </tr>
-             <tr>
-                <td>20</td>
-                <td>degree_type</td>
-                <td>degree awarded to the promoter</td>
-                <<td>categorical</td>
-                <td>string</td>
-            </tr>
-             <tr>
-                <td>21</td>
-                <td>subject</td>
-                <td>specialty of the degree awarded to the promoter</td>
-                <<td>categorical</td>
-                <td>string</td>
-            </tr>
-             <tr>
-                <td>22</td>
-                <td>degree_is_completed</td>
-                <td>confirmation that the degree programme is completed by the promoter</td>
-                <<td>boolean</td>
-                <td>string</td>
-            </tr>
-             <tr>
-                <td>23</td>
-                <td>success</td>
-                <td>(1) for successful company and (0) for unsuccessful company</td>
+                <td>Target</td>
+                <td>(1) for has heart disease and (0) for do not have heart disease</td>
                 <<td>label</td>
                 <td>int</td>
             </tr>           
