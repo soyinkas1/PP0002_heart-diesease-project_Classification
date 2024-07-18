@@ -43,9 +43,42 @@ The current version of the project extends the work done in the bootcamp by carr
 * Improve on the experiments carried out
 * Implement as a modular programmed application using best practices such as Object-Oriented Programming etc.
 * Deploying the application to both Azure and AWS. The goal is to create a robust, scalable solution that can be accessed and used via web services on both cloud platforms.
+* Ultimately deploy the app in a custom domain 
   
 ## Project Structure
 ```
+├── app
+│   ├── data
+│   │   ├── heart-diesease.csv
+│   ├── main
+│   │   ├── components
+│   │   │   ├── __initi__.py
+│   │   │   ├── data_cleaning.py
+│   │   │   ├── data_ingestion.py
+│   │   │   ├── data_transformation.py
+│   │   │   ├── model_training.py
+│   │   ├── config
+│   │   │   ├── __init__.py
+│   │   │   ├── config_entity.py
+│   │   │   ├── config.yaml
+│   │   │   ├── configuration.py
+│   │   │   ├── params.yaml
+│   │   ├── constants
+│   │   │   ├── __init__.py
+│   │   ├── pipeline
+│   │   │   ├── __init__.py
+│   │   │   ├── stage_01_data_ingestion.py
+│   │   │   ├── stage_02_data_cleaning.py
+│   │   │   ├── stage_03_data_transformation.py
+│   │   │   ├── stage_04_model_training.py
+│   │   │   ├── stage_05_prediction_pipeline.py
+
+├── logs
+├── notebooks
+│   ├── 01_EDA_Data Cleaning_v2.ipynb
+│   ├── 02_EDA_Transformation.ipynb
+│   ├── 03_Model_Training.ipynb
+│   ├── Experiments.ipynb
 ├── artifacts
 │   ├── data_cleaning 
 │   ├── data_ingestion
@@ -54,30 +87,7 @@ The current version of the project extends the work done in the bootcamp by carr
 ├── config
 │   ├── config.yaml
 │   ├── params.yaml
-├── data
-│   ├── acquisitions.csv
-│   ├── category_groups.csv
-│   ├── checksum.csv
-│   ├── degrees.csv
-│   ├── event_appearances.csv
-│   ├── events.csv
-│   ├── funding_rounds.csv
-│   ├── funds.csv
-│   ├── investment_partners.csv
-│   ├── investments.csv
-│   ├── ipos.csv
-│   ├── jobs.csv
-│   ├── org_parents.csv
-│   ├── organizations_description.csv
-│   ├── organizations.csv
-│   ├── people_descriptions.csv
-│   ├── people.csv
-├── logs
-├── notebooks
-│   ├── 01_EDA_Data Cleaning_v2.ipynb
-│   ├── 02_EDA_Transformation.ipynb
-│   ├── 03_Model_Training.ipynb
-│   ├── Experiments.ipynb
+
 ├── src
 │   ├── components
 │   │   ├── __initi__.py
@@ -90,11 +100,8 @@ The current version of the project extends the work done in the bootcamp by carr
 │   ├── config 
 │   │   ├── __init__.py
 │   │   ├── configuration.py
-│   ├── constants
-│   │   ├── __init__.py
-│   ├── entity
-│   │   ├── __init__.py
-│   │   ├── config_entity.py
+
+
 │   ├── pipeline
 │   │   ├── __init__.py
 │   │   ├── stage_01_data_ingestion.py
