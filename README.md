@@ -72,65 +72,55 @@ The current version of the project extends the work done in the bootcamp by carr
 │   │   │   ├── stage_03_data_transformation.py
 │   │   │   ├── stage_04_model_training.py
 │   │   │   ├── stage_05_prediction_pipeline.py
-
-├── logs
-├── notebooks
-│   ├── 01_EDA_Data Cleaning_v2.ipynb
-│   ├── 02_EDA_Transformation.ipynb
-│   ├── 03_Model_Training.ipynb
-│   ├── Experiments.ipynb
-├── artifacts
-│   ├── data_cleaning 
-│   ├── data_ingestion
-│   ├── data_transformation
-│   ├── best_model
-├── config
-│   ├── config.yaml
-│   ├── params.yaml
-
-├── src
-│   ├── components
-│   │   ├── __initi__.py
-│   │   ├── data_cleaning.py
-│   │   ├── data_enrinchment.py
-│   │   ├── data_ingestion.py
-│   │   ├── data_scraping.py
-│   │   ├── data_transformation.py
-│   │   ├── model_trainer.py
-│   ├── config 
 │   │   ├── __init__.py
-│   │   ├── configuration.py
-
-
-│   ├── pipeline
-│   │   ├── __init__.py
-│   │   ├── stage_01_data_ingestion.py
-│   │   ├── stage_02_data_cleaning.py
-│   │   ├── stage_03_data_scrapping.py
-│   │   ├── stage_04_data_enrichment.py
-│   │   ├── stage_05_data_transformation.py
-│   │   ├── stage_06_model_trainer.py
-│   │   ├── stage_07_prediction_pipeline.py
+│   │   ├── errors.py
+│   │   ├── exception.py
+│   │   ├── forms.py
+│   │   ├── logging.py
+│   │   ├── views.py
+│   ├── notebooks
+│   │   ├── Heart Disease Classification Project_Research.ipynb
+│   ├── static
+│   │   ├──bootstrap.min.css
+│   │   ├──fontawesome.min.css
+│   │   ├──style copy.css
+│   │   ├──style.css    
+│   ├── templates
+│   │   ├──mail
+│   │   │   ├──iresults.html
+│   │   ├──404.html
+│   │   ├──500.html
+│   │   ├──base.html
+│   │   ├──index.html
+│   │   ├──prediction.html
+│   │   ├──results.html
 │   ├──utils
 │   │   ├── __init__.py
 │   │   ├── common.py
 │   ├── __init__.py
-│   ├── chromedriver.exe
-│   ├── exception.py
-│   ├── logger.py
-├── static
-│   ├──style.css
-├── templates
-│   ├──base.html
-│   ├──index.html
-│   ├──predictor.html
-│   ├──results.html
-│   ├──training.html
+│   ├── db_models.py 
+│   ├── email.py 
+├── artifacts
+│   ├── data_cleaning 
+│   │   ├── clean_heart-disease.csv    
+│   ├── data_ingestion
+│   │   ├── loaded_heart-disease.csv  
+│   ├── data_transformation
+│   │   ├── X_test.csv
+│   │   ├── X_train.csv
+│   │   ├── y_test.csv
+│   │   ├── y_train.csv
+│   ├── best_model.pkl
+│   ├── preprocessor.pkl
+├── logs
+├── migrations
+├── tests
 ├── venv
+├── __init__.py
 ├── .env
 ├── .gitignore
-├── app.py
-├── main.py
+├── config.py
+├── heart.py
 ├──  README.md
 ├── requirements.txt
 ├── setup.py
@@ -139,13 +129,11 @@ The current version of the project extends the work done in the bootcamp by carr
 ## Tech Stack
 ### Dependencies
 ```
-- python 3.8+
+- python 3.12
 - pandas
 - numpy
-- scikit-learn 
+- scikit-learn
 - plotly
-- textBlob
-- selenium
 - matplotlib
 - seaborn
 - lightgbm
@@ -154,10 +142,18 @@ The current version of the project extends the work done in the bootcamp by carr
 - flask
 - flask-wtf
 - flask-bootstrap
+- flask-mail
+- flask-moment
+- flask_sqlalchemy
+- psycopg2
+- flask_fontawesome
+- Flask-Migrate
 - ensure
 - python-box
 - pyYAML
 - python-dotenv
+- jupyter
+- email_validator
 - Github (action)
 - Azure Web App
 - AWS Elastic Beanstalk
@@ -171,40 +167,16 @@ The current version of the project extends the work done in the bootcamp by carr
 
 ## Data Preparation
 ### Data Sources
-- Secondary historical information on startup companies was sourced from Crunchbase, a rich database containing details on founders, employee profiles, industry specifics, and funds raised, resulting in a dataset of 2,589,999 company entries.
-- To enrich this data, social media information was integrated using a Twitter bot developed with the Python Selenium library, which scraped follower counts, accounts followed, and recent tweets, along with engagement metrics. Sentiment analysis of tweet comments was performed, with polarity and subjectivity scores added as features for a machine learning model.
-- However, current restrictions on X (formerly Twitter) requiring sign-ins for each scrape have rendered this approach impractical for over 1,000,000 profiles, leading to the commenting out of the scraping and sentiment analysis pipeline.
-- The raw data is provided in .csv file format and available in the ‘data’ folder. There are 17 CSV files which were sourced from the Crunchbase database. 
+- The original data if from the Cleveland data from the UCI machine Learning Repository. https://archive.ics.uci.edu/ml/datasets/heart+disease
+
+- There is also a version on Kaggle. https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset 
 
 ### Data Cleaning, Preprocessing and Transformation
 The following steps were carried out of this dataset to clean and transform it for use:
 - Missing Values:
-    * Numerical values were filled with zero. 
-    * String (addresses and other objects) values were filled with ‘not known’ or ‘False’ as applicable
-    * Missing dates were either filled with estimates (e.g finish date = 4 years from start date) or with current date so derived dates will be zero 
-- Table Merging:
-    * The tables were merged using the organization table as the bedrock or backbone dataset. 
-- Data type Correction:
-    * Correct data types were cast for integers, floats and dates.
-- Drop duplicates
-- Feature Creation:
-    * ***exp_at_coy_start*** – The number of years of experience of the promoter at the start of the company. This is calculated from the difference in the `completed_on` column from 'degrees' table and the ‘founded_on’ column from the `organizations` table. Negative values represent situations when the degree was completed after the company started and were imputed with zero.
-    * ***degree_length*** - This is the course period of the degree programme. It was assumed as 4 years to impute missing values in the `completed_on` rows which had a date value in the `started_on` column. This is calculated as the difference in the `started_on` and `completed_on` columns of the `degree` table.
-    * ***years_since_last_fundings*** - This is the number of years since the company last received external funding. This is calculated as the difference in the current date and `last_funding_on` column.
-    * ***yrs_of_operation*** - This is the number of years the company has been operating. This is calculated as the difference in `closed_on` and `founded_on` columns.
-    * ***sponsor*** – This is the number of events the organization or promoter participated in as a sponsor. It was created from the `events` and `events_description` tables.
-    * ***speaker***, – This is the number of events the organization or promoter participated in as a speaker. It was created from the `events` and `events_description` tables.
-    * ***exhibitor*** – This is the number of events the organization or promoter participated in as an exhibitor. It was created from the `events` and `events_description` tables.
-    * ***organizer*** – This is the number of events the organization or promoter participated in as an organizer. It was created from the `events` and `events_description` tables.
-    * ***Success*** – This is created based on several criteria to classify a company as successful or not successful. E.g. companies employees above 20 are successful, type of funding (IPO) etc.
-- Drop unneeded columns:
-    * Some columns were dropped outrightly as they do not add value to the analysis while others dropped after utilising them to derive more valuable features.
-- Renaming and Rearrange of columns:
-    * Some columns were renamed to create consistency and remove ambiguity 
-    * Columns were then rearranged to keep numerical, categorical and text features together.
-- Column transformation:
-    * Column transformation of the numerical, categorical and text features were transformed using StandardScaler, OneHotEncoding and TFiDVectorization
-    * The column transformed is saved after fitting with the training data  `processor.pkl`  for transforming prediction data.
+    * There is no missing values in the dataset
+- There was no requirement for transformation as well as there dataset were already encoded for its categorical features
+    
       
 ## Final Data Dictionary 
 
@@ -221,162 +193,85 @@ The following steps were carried out of this dataset to clean and transform it f
         <tbody>
             <tr>
                 <td>1</td>
-                <td>yrs_of_operation</td>
-                <td>The number of years the company has been in operations</td>
+                <td>Age</td>
+                <td>The Age of patient in years</td>
                 <td>numeric</td>
                 <td>int</td>
             </tr>
-            <tr>
+            <tr>a          
                 <td>2</td>
-                <td>yrs_since_last_funding</td>
-                <td>The number of years since the company received any external funding.</td>
-                <td>numeric</td>
+                <td>Sex</td>
+                <td>1-Male or 2-Female.</td>
+                <td>categorical</td>
                 <td>int</td>
             </tr>
             <tr>
                 <td>3</td>
-                <td>degree_length</td>
-                <td>Number of years between the start and completion date of a degree programme by the promoter</td>
-                <td>interval</td>
+                <td>cp</td>
+                <td>Chest Pain Type</td>
+                <td>categorical</td>
                 <td>int</td>
             </tr>
             <tr>
                 <td>4</td>
-                <td>per_exp_at_coy_start</td>
-                <td>The number of years between the year the promoter graduated and when the organisation was founded.</td>
-                <td>interval</td>
+                <td>tresbps</td>
+                <td>Resting Blood Pressure (in mm Hg on admissions to the hospital).</td>
+                <td>numeric</td>
                 <td>int</td>
             </tr>
             <tr>
                 <td>5</td>
-                <td>sponsor</td>
-                <td>The number of events the organization or promoter participated in as a sponsor.</td>
+                <td>chol</td>
+                <td>Serum Cholestoral in mg/dl.</td>
                 <td>numeric</td>
                 <td>int</td>
             </tr>
             <tr>
                 <td>6</td>
-                <td>speaker</td>
-                <td>The number of events the organization or promoter participated in as a speaker.</td>
-                <td>numeric</td>
+                <td>fbs</td>
+                <td>Fasting Blood Sugar > 120mg (1-True, 0-False).</td>
+                <td>categorical</td>
                 <td>int</td>
             </tr>
             <tr>
                 <td>7</td>
-                <td>organizer</td>
-                <td>The number of events the organization or promoter participated in as an organizer</td>
+                <td>restecg</td>
+                <td>Resting electocadiographic (ECG)  results</td>
                 <td>numeric</td>
                 <td>int</td>
             </tr>
             <tr>
                 <td>8</td>
-                <td>oexhibitor</td>
-                <td>The number of events the organization or promoter participated in as an exhibitor</td>
+                <td>oldpeak</td>
+                <td>ST depression induced by exercise relative to rest</td>
                 <td>numeric</td>
-                <td>int</td>
+                <td>float</td>
             </tr>
             <tr>
                 <td>9</td>
-                <td>employee_count</td>
-                <td>count of employees of the organization.</td>
+                <td>slope</td>
+                <td>The slope of the peak exercise ST segment.</td>
                 <td>numeric</td>
                 <td>int</td>
             </tr>
             <tr>
                 <td>10</td>
-                <td>total_funding_usd</td>
-                <td>The total amount of external funding received by the company</td>
+                <td>ca</td>
+                <td>Number of major vessels (0-3) coloured by flourosopy</td>
                 <td>numeric</td>
-                <td>float</td>
+                <td>int</td>
             </tr>
             <tr>
                 <td>11</td>
-                <td>organization_description</td>
-                <td>full description about the company</td>
-                <td>text</td>
-                <td>string</td>
+                <td>thal</td>
+                <td>1-Normal, 2-Fixed defect, 3-Reversible defect</td>
+                <td>numeric</td>
+                <td>int</td>
             </tr>
-            <tr>
+             <tr>
                 <td>12</td>
-                <td>people_description</td>
-                <td>full description about the promoter</td>
-                <td>text</td>
-                <td>string</td>
-            </tr>
-            <tr>
-                <td>13</td>
-                <td>status</td>
-                <td>status or state of the organization</td>
-                <td>categorical</td>
-                <td>string</td>
-            </tr>
-            <tr>
-                <td>14</td>
-                <td>category_list</td>
-                <td>main category type of the organisationr</td>
-                <td>categorical</td>
-                <td>string</td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td>category_groups_list</td>
-                <td>grouped category type of the organization</td>
-                <<td>categorical</td>
-                <td>string</td>
-            </tr>
-            <tr>
-                <td>16</td>
-                <td>primary_role</td>
-                <td>Roles as either company, investor or school </td>
-                <<td>categorical</td>
-                <td>string</td>
-            </tr>
-            <tr>
-                <td>17</td>
-                <td>gender</td>
-                <td>gender identifier for the promoter</td>
-                <<td>categorical</td>
-                <td>string</td>
-            </tr>
-            <tr>
-                <td>18</td>
-                <td>featured_job_title</td>
-                <td>job title for the promoter</td>
-                <<td>categorical</td>
-                <td>string</td>
-            </tr>
-            <tr>
-                <td>19</td>
-                <td>institution_name</td>
-                <td>educational institute attended by the promoter</td>
-                <<td>categorical</td>
-                <td>string</td>
-            </tr>
-             <tr>
-                <td>20</td>
-                <td>degree_type</td>
-                <td>degree awarded to the promoter</td>
-                <<td>categorical</td>
-                <td>string</td>
-            </tr>
-             <tr>
-                <td>21</td>
-                <td>subject</td>
-                <td>specialty of the degree awarded to the promoter</td>
-                <<td>categorical</td>
-                <td>string</td>
-            </tr>
-             <tr>
-                <td>22</td>
-                <td>degree_is_completed</td>
-                <td>confirmation that the degree programme is completed by the promoter</td>
-                <<td>boolean</td>
-                <td>string</td>
-            </tr>
-             <tr>
-                <td>23</td>
-                <td>success</td>
-                <td>(1) for successful company and (0) for unsuccessful company</td>
+                <td>Target</td>
+                <td>(1) for has heart disease and (0) for do not have heart disease</td>
                 <<td>label</td>
                 <td>int</td>
             </tr>           
@@ -396,7 +291,7 @@ The following models were selected after using recommendations from researching 
 
 ### Training the Model
 - Loading the Configuration
-First, load the  model training configuration. This configuration includes settings like paths to the training, validation, and test data, as well as the machine learning models and their parameters.
+First, load the  model training configuration. This configuration includes settings which are the paths to the training, validation, and test data, as well as the machine learning models and their parameters.
 - Loading the Data
 Next, load the datasets:
     * Training Data: Used to train the models.
@@ -404,8 +299,8 @@ Next, load the datasets:
     * Test Data: Used to evaluate the final model's performance.
 - Splitting the Data
 Split each dataset into:
-    * Input Features (X): The data that our model will learn from (e.g., company details, financials).
-    * Target Labels (y): The actual outcomes we want to predict (e.g., whether a startup succeeds or fails).
+    * Input Features (X): The data that our model will learn from.
+    * Target Labels (y): The actual outcomes we want to predict (whether the patient has heart diesease or not).
 
 ### Evaluating Multiple Models
 Evaluated several machine learning models to see which one performs the best. 
