@@ -10,7 +10,7 @@ class ConfigurationManager:
 
     def __init__(self,config_filepath=CONFIG_FILE_PATH, params_filepath=PARAMS_FILE_PATH):
         self.config = read_yaml(config_filepath) 
-        # self.params = read_yaml(params_filepath)
+        self.params = read_yaml(params_filepath)
         
         create_directories([self.config.artifacts_root])
 
@@ -66,6 +66,7 @@ class ConfigurationManager:
 
     def get_data_model_trainer_config(self) -> ModelTrainerConfig:
         config = self.config.model_trainer
+        params = self.params.param_grid
 
         create_directories([config.root_dir])
 
@@ -74,7 +75,9 @@ class ConfigurationManager:
                 best_model_path=config.best_model_path,
                 train_data_path=config.train_data_path,
                 test_data_path=config.test_data_path,
-                val_data_path=config.val_data_path
+                val_data_path=config.val_data_path,
+                models=config.models,
+                params=params.params
             
             )
 

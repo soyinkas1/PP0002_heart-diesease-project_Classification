@@ -291,7 +291,7 @@ The following models were selected after using recommendations from researching 
 
 ### Training the Model
 - Loading the Configuration
-First, load the  model training configuration. This configuration includes settings like paths to the training, validation, and test data, as well as the machine learning models and their parameters.
+First, load the  model training configuration. This configuration includes settings which are the paths to the training, validation, and test data, as well as the machine learning models and their parameters.
 - Loading the Data
 Next, load the datasets:
     * Training Data: Used to train the models.
@@ -299,8 +299,8 @@ Next, load the datasets:
     * Test Data: Used to evaluate the final model's performance.
 - Splitting the Data
 Split each dataset into:
-    * Input Features (X): The data that our model will learn from (e.g., company details, financials).
-    * Target Labels (y): The actual outcomes we want to predict (e.g., whether a startup succeeds or fails).
+    * Input Features (X): The data that our model will learn from.
+    * Target Labels (y): The actual outcomes we want to predict (whether the patient has heart diesease or not).
 
 ### Evaluating Multiple Models
 Evaluated several machine learning models to see which one performs the best. 
