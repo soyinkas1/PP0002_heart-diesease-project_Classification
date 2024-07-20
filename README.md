@@ -290,7 +290,7 @@ The following models were selected after using recommendations from researching 
 - LightGBM
 
 ### Training the Model
-- Loading the Configuration
+- Loading th    e Configuration
 First, load the  model training configuration. This configuration includes settings which are the paths to the training, validation, and test data, as well as the machine learning models and their parameters.
 - Loading the Data
 Next, load the datasets:
@@ -305,7 +305,7 @@ Split each dataset into:
 ### Evaluating Multiple Models
 Evaluated several machine learning models to see which one performs the best. 
 
-Each model is tested using the training and validation data. Used a helper function based on ‘GridSearchCV’ called evaluate_models to check how well each model performs and store the results. 
+Each model is tested using the training and validation data. Used a helper function based on ‘GridSearchCV’ called evaluate_models using hyperparameters values set in the `params.yaml` file to check how well each model performs and store the results. 
 - Selecting the Best Model
 Looked at the performance scores of all the models and choose the one with the highest score. If no model achieves a score of at least 0.6 (out of 1.0), the application raises an error indicating that no suitable model was found.
 - Saving the Best Model
@@ -313,14 +313,11 @@ Once the best model is identified, it is saved to a file to be used later to mak
 
 ## Deployment
 ### Flask Web App
-- The Flask web framework was used to share the web application for use. A simple web app with a form to collect data points and return the prediction was developed. 
+- The Flask web framework was used to share the web application for use. A simple web app with a form to collect data points and return the prediction was developed. This web app has the capability to email the prediction results to the email address provided and also store the prediction data and result in a database.
 ### Azure Deployment
 Deployment to Azure App Service was done using Github action for CI/CD
 
 Use the link below to access the web app:
-
-### AWS Elastic Beanstalk Deployment
-Deploy to AWS Elastic Beanstalk:
 
 ## Update Workflows
 
