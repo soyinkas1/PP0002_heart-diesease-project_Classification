@@ -63,3 +63,8 @@ def predict_datapoint():
     else:
 
         return render_template('prediction.html', form=form)
+    
+@main.route('/datadict', methods=['GET'])
+def index():
+
+    return render_template('datadict.html')
