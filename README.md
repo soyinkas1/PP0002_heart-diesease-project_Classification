@@ -327,14 +327,15 @@ Use the link below to access the web app:
 4. Update the configuration manager in config
 5. Update the components
 6. Update the pipeline
-7. Update the main files (forms.py, views.py)
+7. Update the main files (forms.py, views.py, errors.py, exception.py)
+8. Update db_models.py and email.py
 8. Update the heart.py
 
 ## Usage
 ### Accessing the Deployed Model
 - Upon launching the application, the default page is the about page.
-- Use the predictor tab to access the prediction page and provide values for all the data endpoints for the company using the input boxes, dropdowns etc.
-- Click the submit button for a prediction of the success of the company
+- Use the prediction tab to access the prediction page and provide values for all the data endpoints for the patient using the input boxes, dropdowns etc.
+- Click the submit button for heart diesease. The result is displayed in the console and emailed to the email address provided.
   
 ## Contributing
 1. Fork the repository.
@@ -348,18 +349,14 @@ This project is licensed under the MIT License
 
 ## Acknowledgments
 The project code, structure, best practices etc. were inspired and learnt from a myriad of open sources such as :
-- Coursework from the M.Sc programme at Cardiff Metropolitan University
-- Youtube videos of Kris Naik such as
-- Books and literature such as
-- YouTube and many other resources such as
-- Udemy training such as
-- Github repositories and resources such as
-And many Medium.com articles.
+- Coursework from Zero to Mastery Data Science ML Bootcamp 
+- Youtube videos of Kris Naik such as End to End Machine Learning Project
+- Books and literature such as Flask Web Development, Data Science from Scratch
+- Udemy trainings
+- Github repositories and resources
+- Medium.com articles etc.
 
 ## Future Work/Advancements
 
-1. Create a viable workaround for the Twitter scrapper to scrape 2000000+ profiles
-2. Add a Facebook scrapping module 
-3. Update the data source to be a database such as MongoDB
-4. Connect to updated data feed from Crunchbase to continually train the model as part of the pipeline
+1. TBD
 
