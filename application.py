@@ -6,7 +6,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+application = create_app(os.getenv('FLASK_CONFIG') or 'default')
+
+app = application
 migrate = Migrate(app, db)
 
 def make_shell_context():

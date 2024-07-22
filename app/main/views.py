@@ -1,8 +1,8 @@
 from flask import render_template, session, redirect, url_for
 from . import main
 from .forms import WebForm
-from .. import db
-from ..db_models import HeartPredictions
+# from .. import db
+# from ..db_models import HeartPredictions
 from app.main.pipeline.stage_05_prediction_pipeline import CustomData, PredictPipeline
 from app.main.config.configuration import ConfigurationManager
 from .. import email
