@@ -24,9 +24,9 @@ def create_app(config_name):
     db.init_app(app)
 
     # attach routes and custom error pages here
-    # with app.app_context():
+    with app.app_context():
     #     from . import models, views
-    #     db.create_all()
+        db.create_all()
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 

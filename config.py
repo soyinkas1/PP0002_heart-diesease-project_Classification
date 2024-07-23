@@ -32,8 +32,7 @@ class TestingConfig(Config):
         'sqlite:///' + os.path.join(basedir, 'data-test.sqlite')
         SQLALCHEMY_TRACK_MODIFICATIONS = os.getenv('SQLALCHEMY_TRACK_MODIFICATIONS')
 class ProductionConfig(Config):
-        SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') 
-        or \
+        SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'data-test.sqlite')
         SQLALCHEMY_TRACK_MODIFICATIONS = os.getenv('SQLALCHEMY_TRACK_MODIFICATIONS')
         
