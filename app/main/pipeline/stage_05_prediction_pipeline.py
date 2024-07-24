@@ -145,5 +145,5 @@ class CustomData:
             db.session.bulk_insert_mappings(HeartPredictions, data_dicts)
             db.session.commit()
         except Exception as e:
-            print(f"Error: {e}")
+            raise CustomException(e, sys)
             db.session.rollback()

@@ -6,6 +6,7 @@ from .forms import WebForm
 from app.main.pipeline.stage_05_prediction_pipeline import CustomData, PredictPipeline
 from app.main.config.configuration import ConfigurationManager
 from .. import email
+from .logging import logging
 
 
 config = ConfigurationManager()
@@ -54,9 +55,11 @@ def predict_datapoint():
         database_df['target'] = predict
         data.add_to_database(database_df)
 
+        logging.info('Database updated')
         # Email results 
         email.send_email(database_df['email'].iloc[0], 'results',
 'mail/results', predict=predict)
+        logging.info('Email sent')
 
         return render_template('results.html', predict=predict)
 
