@@ -14,7 +14,7 @@ flask-mail
 flask-moment
 flask_sqlalchemy
 psycopg2
-pymysq
+pymysql
 flask_fontawesome
 Flask-Migrate
 ensure
