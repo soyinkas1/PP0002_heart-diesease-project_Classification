@@ -85,7 +85,7 @@ jobs:
         with:
           app-name: 'hdpredictor'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2305B597B54D453C8C4CB8C5863BF367 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_19168B043D86482C92DA0A94CCC721C2 }}
           
       - name: 'Verify environment variables'
         run: |
