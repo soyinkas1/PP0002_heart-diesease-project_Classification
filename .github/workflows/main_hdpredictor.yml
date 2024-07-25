@@ -78,9 +78,7 @@ jobs:
           az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings SECRET_KEY=${{ secrets.SECRET_KEY }}
           az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings SQLALCHEMY_TRACK_MODIFICATIONS=${{ secrets.SQLALCHEMY_TRACK_MODIFICATIONS }}
         
-      - name: Apply database migrations
-        run: |
-            flask db upgrade
+
         
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
