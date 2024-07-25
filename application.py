@@ -37,3 +37,7 @@ with app.app_context():
         logging.info('Database upgraded successfuly')
     except Exception as e:
             raise CustomException(e, sys)
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8000)
