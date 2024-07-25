@@ -59,14 +59,34 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
-      
+      - name: Authenticate with Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Set environment variables
+        run: |
+          az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings DATABASE_URL=${{ secrets.DATABASE_URL }}
+          az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings DEV_DATBASE_URL=${{ secrets.DEV_DATABASE_URL }}
+          az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings FLASK_CONFIG=${{ secrets.FLASK_CONFIG }}
+          az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }}
+          az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings MAIL_PORT=${{ secrets.MAIL_PORT }}
+          az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings MAIL_SERVER=${{ secrets.MAIL_SERVER }}
+          az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings MAIL_SUBJECT_PREFIX=${{ secrets.MAIL_SUBJECT_PREFIX }}
+          az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings MAIL_USERNAME=${{ secrets.MAIL_USERNAME }}
+          az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings MAIL_USE_TLS=${{ secrets.MAIL_USE_TLS }}
+          az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings SECRET_KEY=${{ secrets.SECRET_KEY }}
+          az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings SQLALCHEMY_TRACK_MODIFICATIONS=${{ secrets.SQLALCHEMY_TRACK_MODIFICATIONS }}
+          
+        
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
           app-name: 'hdpredictor'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_19168B043D86482C92DA0A94CCC721C2 }}          
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2305B597B54D453C8C4CB8C5863BF367 }}
+          
       - name: 'Verify environment variables'
         run: |
             az webapp config appsettings list --resource-group hdpredictor --name hdpredictor
