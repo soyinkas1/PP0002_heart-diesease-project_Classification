@@ -86,3 +86,7 @@ jobs:
           app-name: 'hdpredictor'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2305B597B54D453C8C4CB8C5863BF367 }}
+          
+      - name: 'Verify environment variables'
+        run: |
+            az webapp config appsettings list --resource-group hdpredictor --name hdpredictor
