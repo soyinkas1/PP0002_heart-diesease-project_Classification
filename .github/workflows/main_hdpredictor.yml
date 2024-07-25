@@ -77,9 +77,12 @@ jobs:
           az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings MAIL_USE_TLS=${{ secrets.MAIL_USE_TLS }}
           az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings SECRET_KEY=${{ secrets.SECRET_KEY }}
           az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings SQLALCHEMY_TRACK_MODIFICATIONS=${{ secrets.SQLALCHEMY_TRACK_MODIFICATIONS }}
-          
         
-      - name: 'Deploy to Azure Web App'
+      - name: Apply database migrations
+        run: |
+            flask db upgrade
+        
+      - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
@@ -87,6 +90,6 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_19168B043D86482C92DA0A94CCC721C2 }}
           
-      - name: 'Verify environment variables'
+      - name: Verify environment variables
         run: |
             az webapp config appsettings list --resource-group hdpredictor --name hdpredictor
