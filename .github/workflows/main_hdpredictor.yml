@@ -88,9 +88,10 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_19168B043D86482C92DA0A94CCC721C2 }}
 
       - name: Run database migrations
+        env:
+            SCM_DO_BUILD_DURING_DEPLOYMENT: 1
         run: |
-          curl -sSL https://aka.ms/InstallAzureCLIDeb | sudo bash
-          az webapp ssh --resource-group hdpredictor --name hdpredictor --command "source venv/bin/activate && flask db upgrade"
+            curl -X POST -u \${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_19168B043D86482C92DA0A94CCC721C2 }} -d '{ "command": "source venv/bin/activate && flask db upgrade" }' https://hdpredictor.scm.azurewebsites.net/api/command
           
       - name: Verify environment variables
         run: |
