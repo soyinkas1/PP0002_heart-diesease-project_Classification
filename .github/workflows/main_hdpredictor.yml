@@ -87,11 +87,10 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_19168B043D86482C92DA0A94CCC721C2 }}
 
-      
       - name: Run database migrations
         run: |
-            curl -u $hdpredictor:${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_19168B043D86482C92DA0A94CCC721C2 }} -X POST https://hdpredictor.scm.azurewebsites.net/api/command -d '{ "command": "source venv/bin/activate && flask db upgrade" }'
-              
+            curl -u ${{ secrets.KUDU_USERNAME }}:${{ secrets.KUDU_PASSWORD }} -X POST https://hdpredictor.scm.azurewebsites.net/api/command -d '{ "command": "sh migrate.sh" }'
+                
       - name: Verify environment variables
         run: |
             az webapp config appsettings list --resource-group hdpredictor --name hdpredictor
