@@ -48,6 +48,6 @@
     background-color: black;
     color: white;
     border: none; /* Optionally, to remove default button border */
-    border-radius: 5px; /* Optionally, add border radius for rounded corners */
+    border-radius: 10px; /* Optionally, add border radius for rounded corners */
 }
 
