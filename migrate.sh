@@ -1,3 +1,3 @@
 #!/bin/bash
-source venv/bin/activate
+source  /home/site/wwwroot/venv/bin/activate
 flask db upgrade
