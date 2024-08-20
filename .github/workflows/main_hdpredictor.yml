@@ -80,8 +80,8 @@ jobs:
           az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings FLASK_APP=${{ secrets.FLASK_APP }}
 
       - name: Copy migrate.sh to output folder
-        run: cp migrate.sh ./build/  # Adjust paths as needed
-      
+        run: cp 'heart-diesease-project_Classification/migrate.sh' ./build/  
+    
       
       - name: Run database migrations
         run: |
