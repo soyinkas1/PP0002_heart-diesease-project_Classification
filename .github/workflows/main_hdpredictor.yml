@@ -79,8 +79,8 @@ jobs:
           az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings SQLALCHEMY_TRACK_MODIFICATIONS=${{ secrets.SQLALCHEMY_TRACK_MODIFICATIONS }}
           az webapp config appsettings set --resource-group hdpredictor --name hdpredictor --settings FLASK_APP=${{ secrets.FLASK_APP }}
 
-      - name: Copy migrate.sh to output folder
-        run: cp migrate.sh ./build/  
+      - name: Copy migrate.sh to build folder
+        run: cp 'heart-diesease-project_Classification/migrate.sh' ./build/  # Adjust the path as needed
     
       
       - name: Run database migrations
