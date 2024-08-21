@@ -1,0 +1,25 @@
+
+
+name: Build and deploy Python app to Azure Web App - hdpredictor
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Log in to Azure CLI
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Deploy to Azure Web App
+      run: |
+        az webapp config container set --name ${{ secrets.WEB_APP_NAME }} --resource-group ${{ secrets.RESOURCE_GROUP }} \
+        --docker-custom-image-name ${{ secrets.DOCKER_IMAGE_NAME }} --slot production
