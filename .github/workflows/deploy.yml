@@ -19,7 +19,12 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Deploy to Azure Web App
+    - name: Deploy Docker image to Azure Web App
       run: |
-        az webapp config container set --name ${{ secrets.WEB_APP_NAME }} --resource-group ${{ secrets.RESOURCE_GROUP }} \
-        --docker-custom-image-name ${{ secrets.DOCKER_IMAGE_NAME }} --slot production
+          az webapp config container set \
+            --name hdpredictor \
+            --resource-group hdpredictor2 \
+            --container-image-name soyinkas1/hdpredictor:latest \
+            --docker-registry-server-url https://index.docker.io/v1/ \
+            --docker-registry-server-user ${{ secrets.DOCKERHUB_USERNAME }} \
+            --docker-registry-server-password ${{ secrets.DOCKERHUB_TOKEN }}
