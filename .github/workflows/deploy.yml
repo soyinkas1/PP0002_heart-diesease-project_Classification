@@ -23,7 +23,7 @@ jobs:
       run: |
           az webapp config container set \
             --name hdpredictor \
-            --resource-group hdpredictor2 \
+            --resource-group hdpredictor \
             --container-image-name soyinkas1/hdpredictor:latest \
             --container-registry-url https://index.docker.io/v1/ \
             --container-registry-user ${{ secrets.DOCKERHUB_USERNAME }} \
