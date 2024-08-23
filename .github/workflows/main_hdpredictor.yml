@@ -48,4 +48,4 @@ jobs:
         app-name: 'hdpredictor'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_63d153d8499c43fd85ca7df3e6ccc387 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_503a22a34bc64917b5241330f12e0c3b }}/soyinkas1/hdpredictor:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_503a22a34bc64917b5241330f12e0c3b }}/${{ secrets.WEB_APP_NAME }}:${{ github.sha }}'
