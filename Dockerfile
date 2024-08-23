@@ -1,5 +1,7 @@
 FROM python:3.12
 
+ENV PYTHONPATH="${PYTHONPATH}:/src"
+
 WORKDIR /src
 
 COPY requirements.txt .
