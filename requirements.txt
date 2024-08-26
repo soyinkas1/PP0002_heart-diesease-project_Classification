@@ -24,5 +24,7 @@ python-dotenv
 jupyter
 email_validator
 gunicorn
+unittest
+
 
 

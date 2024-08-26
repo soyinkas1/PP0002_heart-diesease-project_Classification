@@ -1,17 +1,20 @@
 {% extends "base.html" %}
 
-{% block title %} HD Predictor- Data Dicttionary{% endblock %}
+{% block title %} HD Predictor-Data Dicttionary{% endblock %}
 
 {% block page_content %}
 
 <div class="'page-header">
      <h1>Data Dictionary</h1>
 </div>
-<!-- {{super()}} -->
 <main>
     <section>
-        <h2>. . . . . . .</h2>
-        <table border="1">
+        <h2>. . . . . . . . . . . . . </h2>
+        <br>
+        <br>
+
+
+        <table class="table" border="7">
             <thead>
                 <tr>
                     <th>S/N</th>
@@ -29,7 +32,7 @@
                     <td>numeric</td>
                     <td>int</td>
                 </tr>
-                <tr>a          
+                <tr>          
                     <td>2</td>
                     <td>Sex</td>
                     <td>1-Male or 2-Female.</td>
@@ -67,7 +70,7 @@
                 <tr>
                     <td>7</td>
                     <td>restecg</td>
-                    <td>Resting electocadiographic (ECG)  results</td>
+                    <td>Resting electocadiographic (ECG)  results.</td>
                     <td>numeric</td>
                     <td>int</td>
                 </tr>
@@ -95,7 +98,7 @@
                 <tr>
                     <td>11</td>
                     <td>thal</td>
-                    <td>1-Normal, 2-Fixed defect, 3-Reversible defect</td>
+                    <td>Thalassemia (a type of anemia)</td>
                     <td>numeric</td>
                     <td>int</td>
                 </tr>
@@ -103,14 +106,13 @@
                     <td>12</td>
                     <td>Target</td>
                     <td>(1) for has heart disease and (0) for do not have heart disease</td>
-                    <<td>label</td>
+                    <td>label</td>
                     <td>int</td>
                 </tr>           
             </tbody>
         </table>
-        <br>
-        <br>
-        <!-- <p> The data used and result of this prediction has been saved to our database and also sent to the email provided.</p> -->
+      
+        
     </section>
     
 </main>
