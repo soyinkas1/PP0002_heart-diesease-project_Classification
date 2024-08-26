@@ -1,8 +1,20 @@
 {% extends "base.html" %}
 {% import 'bootstrap/wtf.html' as wtf %}
 {% block title %}Heart Diesease Predictor{% endblock %}
-{% block content %}<h1>Heart Disease Predictor</h1>
+{% block content %}<h2>Instructions:</h2>
+<br>
+<p>1. Input the health data</p>
 
-{{ wtf.quick_form(form) }}
+<p>2. Click submit after inputing the data</p>
+
+
+<div class="form-wrapper">
+    
+    <form method="POST" action="{{ url_for('main.predict_datapoint') }}">
+        {{ wtf.quick_form(form) }}
+    </form>
+</div>
+
+
 
 {% endblock %}

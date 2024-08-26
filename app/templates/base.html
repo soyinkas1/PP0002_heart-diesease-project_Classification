@@ -7,29 +7,28 @@
     
     <!-- Bootstrap CSS -->
     <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-AG6y4ELjtpi0h4Mn8mEUBV/XB4M4q7QbDh1bYpl5jph8GZ2aEv3si2oF6H/5/jTN" crossorigin="anonymous">
-    
-    <!-- <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"> -->
-    <link href="{{ url_for('static', filename='style copy.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- custom styling -->
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+
   
     {% endblock %}
 
 {% endblock %}
 </head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>{% block title %}{% endblock %}</title>
 
 </head>
-
+<div class="'wrapper">
 <body>
   <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Heart Disease Predictor</a>
+      <a class="navbar-brand" >Heart Disease Predictor</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -63,26 +62,22 @@
 
 
 
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 
 <footer class="footer">
-  <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
-  <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
-  <a href="https://github.com" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+  <a href="https://www.linkedin.com/in/shosowoolu/" target="_blank"><i class="fa fa-linkedin fa-2x" id="linkedin_icon"></i></a>
+  <a href="https:/x.com/soyinka_lcc3" target="_blank"><i class="fa fa-twitter fa-2x" id="twitter_icon"></i></a>
+  <a href="https://github.com/soyinkas1" target="_blank"><i class="fa fa-github fa-2x" id="github_icon"></i></a>
 
   <!-- Copyright -->
-  <div class="footer" style="background-color: rgba(0, 0, 0, 0.05);">
+  <div class="second_footer" style="background-color: rgba(0, 0, 0, 0.05);">
     ©2024 :
-    <a class="text-body" href="https://shosowoolu.com/">www.shosowoolu.com</a>
+    <a class="text-body" target="_blank" href="https://www.shosowoolu.com/">www.shosowoolu.com</a>
   </div>
 </footer>
 
-
+</div>
 
 
 

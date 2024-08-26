@@ -1,10 +1,8 @@
-
-
 .container {
-    padding: 100px;
-    
+    padding: 50px;
+    max-width: 75%;
+    margin: 10px;   
 }
-
   
 .footer {
     background-color: #333;
@@ -12,42 +10,98 @@
     padding: 20px 0;
     text-align: center;
 }
+
 .footer a {
     color: white;
     margin: 0 10px;
 }
+
 .footer a:hover {
     color: #ddd;
 }
-.fab.fa-linkedin {
-    color: #0077B5;
+
+.fa-linkedin  {
+    color: white;
 }
+
 .fab.fa-twitter {
     color: #1DA1F2;
 }
+
 .fab.fa-github {
     color: #333333;
 }
 
-.form-control {
-    width: 70%;
-    max-width: 500px; /* Optionally, you can set a maximum width */
-    border-radius: 10px; /* Adjust the value as needed for rounded corners */
-    
+.form {
+    width: 100%;
+    max-width: 900px; 
+    border-radius: 10px; 
+    height: 30px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
-.form-control::placeholder {
-    color: #999; /* Adjust the color of the placeholder text */
+.form-wrapper {
+    display: flex;
+    align-items: center;      
+    min-height: 100vh;
+    margin-left: 50px; 
+    margin-top: 50pxx;      
 }
 
-.container {
-    padding: 100px;
+.control-label{
+    margin: 5px;
 }
 
 #submit {
     background-color: black;
     color: white;
-    border: none; /* Optionally, to remove default button border */
-    border-radius: 15px; /* Optionally, add border radius for rounded corners */
+    border: none;
+    border-radius: 15px; 
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.table {
+    border-collapse: collapse; 
+    width: 100%;  
+}
+
+td, th {
+    border: 2px solid black; 
+    text-align: center; 
+    padding: 8px; 
+    word-wrap: break-word;
+    white-space: normal; 
+    overflow-wrap: break-word;
+}
+
+p, h2{
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+li {
+    margin: 10px;
+    font-size: 19px
+}
+
+p {
+    font-size: 20px;
+    justify-content: space-evenly
+}
+
+main{
+
+    min-height: 50vh;
+}
+
+.form-control{
+     width: 130%;
+
+}
+
+h1{
+    margin-left: 30px;
 }
 

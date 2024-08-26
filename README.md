@@ -27,15 +27,15 @@ The In a statement,
 
 
 ## Project Overview
-The first version of the notebook is the work along file from the ZTM ML Data Science bootcamp. 
+The first attempt at this project was part of the ZTM ML Data Science bootcamp. The notebook- Heart Disease Classification Project_ZTM Walkalong 08_22.ipynb in the notebook directory is the work along file from the bootcamp. 
 
-The current version of the project extends the work done in the bootcamp by carrying out the following additional steps and capabilities such as:
+This version is an upgrade to an end-to-end ML project to extend the work done in the bootcamp by carrying out the following additional steps and capabilities such as:
 
 * Experiment with additional classification models and hyperparameters
 * Convert project structure to modular programming using OOP
 * Deploy as a Flask Web App
-* Classification results sent to email
-* Prediction data and results saved to a database
+* Prediction results sent to email
+* Prediction data and results saved to a Cloud database
 * Deploy the web application to the Cloud.
 
 **Current Objectives**
@@ -79,15 +79,14 @@ The current version of the project extends the work done in the bootcamp by carr
 │   │   ├── logging.py
 │   │   ├── views.py
 │   ├── notebooks
-│   │   ├── Heart Disease Classification Project_Research.ipynb
+│   │   ├── Heart Disease Classification Project_Latest Research.ipynb
+│   │   ├── Heart Disease Classification Project_ZTM Walkalong 08_22.ipynb
 │   ├── static
 │   │   ├──bootstrap.min.css
-│   │   ├──fontawesome.min.css
-│   │   ├──style copy.css
 │   │   ├──style.css    
 │   ├── templates
 │   │   ├──mail
-│   │   │   ├──iresults.html
+│   │   │   ├──results.html
 │   │   ├──404.html
 │   │   ├──500.html
 │   │   ├──base.html
@@ -119,11 +118,12 @@ The current version of the project extends the work done in the bootcamp by carr
 ├── __init__.py
 ├── .env
 ├── .gitignore
+├── application.py
 ├── config.py
-├── heart.py
+├── Dockerfile
 ├──  README.md
 ├── requirements.txt
-├── setup.py
+
 
 ```
 ## Tech Stack
@@ -153,10 +153,12 @@ The current version of the project extends the work done in the bootcamp by carr
 - pyYAML
 - python-dotenv
 - jupyter
+- gunicorn
 - email_validator
 - Github (action)
 - Azure Web App
-- AWS Elastic Beanstalk
+- Azure MySQL Flexible Server
+- HTML & CSS
 
 ```
 ### Step-by-Step Implementation
@@ -176,8 +178,7 @@ The following steps were carried out of this dataset to clean and transform it f
 - Missing Values:
     * There is no missing values in the dataset
 - There was no requirement for transformation as well as there dataset were already encoded for its categorical features
-    
-      
+        
 ## Final Data Dictionary 
 
 <table border="1">
@@ -198,7 +199,7 @@ The following steps were carried out of this dataset to clean and transform it f
                 <td>numeric</td>
                 <td>int</td>
             </tr>
-            <tr>a          
+            <tr>          
                 <td>2</td>
                 <td>Sex</td>
                 <td>1-Male or 2-Female.</td>
@@ -290,7 +291,7 @@ The following models were selected after using recommendations from researching 
 - LightGBM
 
 ### Training the Model
-- Loading th    e Configuration
+- Loading the Configuration
 First, load the  model training configuration. This configuration includes settings which are the paths to the training, validation, and test data, as well as the machine learning models and their parameters.
 - Loading the Data
 Next, load the datasets:
@@ -311,31 +312,35 @@ Looked at the performance scores of all the models and choose the one with the h
 - Saving the Best Model
 Once the best model is identified, it is saved to a file to be used later to make predictions.
 
+This process will be updated in the next version to incorporate a complete MLOps pipeline with automated model training and model Registry 
+
 ## Deployment
 ### Flask Web App
-- The Flask web framework was used to share the web application for use. A simple web app with a form to collect data points and return the prediction was developed. This web app has the capability to email the prediction results to the email address provided and also store the prediction data and result in a database.
+- The Flask web framework was used to share the web application for use. A simple web app with a form to collect data points and return the prediction was developed. CSS was used to perform minimal customasation of the Bootstrap template used for the web page. This web app has the capability to email the prediction results to the email address provided and also store the prediction data and result in a database.
 ### Azure Deployment
-Deployment to Azure App Service was done using Github action for CI/CD
+Deployment to `Azure Web App Service` was done using Github action with `Docker` for CI/CD of the application. The `Azure MySQL Flexible Server` was used to store the prediction results and data. The database was connect to MySQL Workbench for easy analysis of the prediction data in the database.
 
-Use the link below to access the web app:
+Use the link below to access the web app deployed to `Azure Cloud`:
 
-## Update Workflows
+https://hdpredictor.azurewebsites.net/
+
+## Update Workflow
 
 1. Update the config_entity in config
 2. Update config.yaml in config
 3. Update params.yaml in config
 4. Update the configuration manager in config
-5. Update the components
-6. Update the pipeline
+5. Update the components scripts
+6. Update the pipeline scripts
 7. Update the main files (forms.py, views.py, errors.py, exception.py)
 8. Update db_models.py and email.py
-8. Update the heart.py
+8. Update the application.py
 
 ## Usage
 ### Accessing the Deployed Model
-- Upon launching the application, the default page is the about page.
-- Use the prediction tab to access the prediction page and provide values for all the data endpoints for the patient using the input boxes, dropdowns etc.
-- Click the submit button for heart diesease. The result is displayed in the console and emailed to the email address provided.
+- Upon launching the application, the default page is the `About` page.
+- Use the `Predict`tab to access the prediction page and provide values for all the data endpoints for the patient using the input boxes, dropdowns etc.
+- Click the submit button for prediction by the model. The result is displayed in the web page and also emailed to the email address provided.
   
 ## Contributing
 1. Fork the repository.
@@ -350,13 +355,14 @@ This project is licensed under the MIT License
 ## Acknowledgments
 The project code, structure, best practices etc. were inspired and learnt from a myriad of open sources such as :
 - Coursework from Zero to Mastery Data Science ML Bootcamp 
-- Youtube videos of Kris Naik such as End to End Machine Learning Project
-- Books and literature such as Flask Web Development, Data Science from Scratch
+- Youtube videos of Kris Naik such as the End to End Machine Learning Project Video 
+- Books and literature such as Flask Web Development, Data Science from Scratch etc.
 - Udemy trainings
 - Github repositories and resources
 - Medium.com articles etc.
+- Lastly and not the least -ChatGPT!
 
 ## Future Work/Advancements
 
-1. TBD
+1. Update with an automated training pipeline with model registry using tools such as MLFlow, DVC, CometML.
 
