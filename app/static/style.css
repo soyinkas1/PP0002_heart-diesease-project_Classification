@@ -7,7 +7,7 @@
 
   
 .footer {
-    background-color: #333;
+    /* background-color: #333; */
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -19,8 +19,9 @@
 .footer a:hover {
     color: #ddd;
 }
-.fab.fa-linkedin {
-    color: #0077B5;
+i.fab.fa-linkedin.fa-2x {
+    color: red;
+    background-color: black;
 }
 .fab.fa-twitter {
     color: #1DA1F2;
@@ -40,9 +41,6 @@
     color: #999; /* Adjust the color of the placeholder text */
 }
 
-.container {
-    padding: 100px;
-}
 
 #submit {
     background-color: black;
