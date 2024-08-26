@@ -7,13 +7,14 @@ from dotenv import load_dotenv
 from app.main.exception import CustomException
 from app.main.logging import logging
 
+# Load environment variables
 load_dotenv()
 
 application = create_app(os.getenv('FLASK_CONFIG') or 'default')
 
 app = application
 migrate = Migrate(app, db)
-
+logging.info('app created')
 def make_shell_context():
     return dict(db=db, Predictions=HeartPredictions)
 
@@ -42,6 +43,7 @@ with app.app_context():
 def test():
     """Run the unit tests"""
     import unittest
+
     tests = unittest.TestLoader().discover('tests')
     unittest.TextTestRunner(verbosity=2).run(tests)
 
