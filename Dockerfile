@@ -15,6 +15,5 @@ COPY . .
 EXPOSE 8000
 
 # Define the command to run the application using Gunicorn
-# CMD ["gunicorn", "-b", "0.0.0.0:8000", "application:app"]
 
 CMD flask db upgrade && gunicorn --bind 0.0.0.0:8000 "application:app"
