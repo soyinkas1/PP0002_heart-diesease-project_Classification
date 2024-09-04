@@ -71,3 +71,8 @@ def predict_datapoint():
 def datadict():
 
     return render_template('datadict.html')
+
+@main.route('/privacy', methods=['GET', 'POST'])
+def privacy():
+
+    return render_template('privacy.html')
