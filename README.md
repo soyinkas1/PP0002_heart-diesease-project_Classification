@@ -17,7 +17,6 @@ The In a statement,
 7. [Deployment](#deployment)
     - [Flask Web App](#Flask-web-app)
     - [Azure Deployment](#azure-deployment)
-    - [AWS Elastic Beanstalk Deployment](#aws-elastic-beanstalk-deployment)
 9.  [Update Workflows](#update-workflows)
 10. [Usage](#usage)
 11. [Contributing](#contributing)
