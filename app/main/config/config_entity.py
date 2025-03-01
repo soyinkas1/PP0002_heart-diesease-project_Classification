@@ -2,7 +2,7 @@ from dataclasses import dataclass # type: ignore
 import os
 from pathlib import Path
 
-from numpy.core.arrayprint import str_format # type: ignore
+# from numpy.core.arrayprint import str_format # type: ignore
 
 
 @dataclass(frozen=True)
