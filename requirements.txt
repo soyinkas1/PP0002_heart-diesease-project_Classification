@@ -18,7 +18,7 @@ pymysql
 flask_fontawesome
 Flask-Migrate
 ensure
-python-boxy
+python-box
 pyYAML
 python-dotenv
 jupyter
