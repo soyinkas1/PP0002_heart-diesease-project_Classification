@@ -10,6 +10,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+# Ensure /src is writable
+RUN chmod -R 777 /src
 
 # Expose the port on which the app will run
 EXPOSE 8000
